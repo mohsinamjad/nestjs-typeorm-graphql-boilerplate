@@ -1,0 +1,14 @@
+{
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.eslint": true,
+        // "source.organizeImports": true,
+    },
+    "eslint.format.enable": true,
+    "editor.formatOnPaste": true,
+}
