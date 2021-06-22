@@ -1,4 +1,30 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/scratch/src",
+  "monorepo": true,
+  "root": "apps/scratch",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/scratch/tsconfig.app.json"
+  },
+  "projects": {
+    "scratch": {
+      "type": "application",
+      "root": "apps/scratch",
+      "entryFile": "main",
+      "sourceRoot": "apps/scratch/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/scratch/tsconfig.app.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
+      }
+    }
+  }
 }

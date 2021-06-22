@@ -4,11 +4,11 @@ import { join } from 'path';
 import { getConnectionOptions } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthorModule } from './modules/author/author.module';
-import { BookModule } from './modules/book/book.module';
 import { TypeGraphQLModule } from 'typegraphql-nestjs';
+import { AppResolver } from './app.resolver';
+import { CommonModule } from '@lib/common';
 
-import { AppResolver } from './temp.resolver';
+console.log({ CommonModule });
 
 @Module({
   imports: [
@@ -41,8 +41,7 @@ import { AppResolver } from './temp.resolver';
       dateScalarMode: 'timestamp',
       context: ({ req }) => ({ currentUser: req.user }),
     }),
-    AuthorModule,
-    BookModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],
