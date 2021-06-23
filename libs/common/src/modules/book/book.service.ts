@@ -1,6 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { Connection } from 'typeorm';
+import Author from '../author/author.entity';
 import Book from './book.entity';
+import { CreateBookInputWithAuthor, UpdateBookInput } from './dto/book.dto';
 
 @Injectable()
 export class BookService {
@@ -8,5 +10,29 @@ export class BookService {
 
   async findAll(): Promise<Book[]> {
     return this.connection.manager.find(Book);
+  }
+
+  async findOne(options = {}): Promise<Book> {
+    return this.connection.manager.findOne(Book, options);
+  }
+
+  async create(book: CreateBookInputWithAuthor): Promise<Book> {
+    const { author, ...rest } = book;
+    const createdAuthor = await this.connection.manager.save(Author, author);
+    const payload = { ...rest, author: createdAuthor };
+    const createdBook = await this.connection.manager.create(Book, payload);
+    const result = await this.connection.manager.save(Book, createdBook);
+    return result;
+  }
+
+  async update(book: UpdateBookInput): Promise<Book> {
+    return await this.connection.manager.save(Book, book);
+  }
+
+  async delete(id: number, softDelete = false): Promise<number> {
+    if (!softDelete) {
+      const { affected } = await this.connection.manager.delete(Book, { id });
+      return affected;
+    }
   }
 }

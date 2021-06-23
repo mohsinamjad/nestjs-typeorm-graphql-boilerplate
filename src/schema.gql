@@ -3,13 +3,8 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-"""new author data"""
-input AddAuthorInput {
-  name: String!
-  phone: String
-}
-
 type Author {
+  books: [Book!]
   createdAt: Timestamp!
   id: Float!
   name: String!
@@ -18,17 +13,38 @@ type Author {
 }
 
 type Book {
-  authorId: Float!
+  author: Author!
   createdAt: Timestamp!
   id: Float!
   title: String!
   updatedAt: Timestamp!
 }
 
+"""new author data"""
+input CreateAuthorInput {
+  books: [CreateBookInputWithoutAuthor!]
+  name: String!
+  phone: String
+}
+
+"""new book data"""
+input CreateBookInputWithAuthor {
+  author: CreateAuthorInput!
+  title: String!
+}
+
+"""new book data"""
+input CreateBookInputWithoutAuthor {
+  title: String!
+}
+
 type Mutation {
-  addAuthor(data: AddAuthorInput!): Author!
+  createAuthor(data: CreateAuthorInput!): Author!
+  createBook(data: CreateBookInputWithAuthor!): Book!
   deleteAuthor(id: Float!): Int!
+  deleteBook(id: Float!): Int!
   updateAuthor(data: UpdateAuthorInput!): Author!
+  updateBook(data: UpdateBookInput!): Book!
 }
 
 type Query {
@@ -47,4 +63,9 @@ input UpdateAuthorInput {
   id: Float!
   name: String
   phone: String
+}
+
+"""update book data"""
+input UpdateBookInput {
+  title: String!
 }

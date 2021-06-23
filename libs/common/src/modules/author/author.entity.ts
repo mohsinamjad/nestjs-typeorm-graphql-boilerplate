@@ -33,6 +33,12 @@ export default class Author {
   updatedAt: Date;
 
   // Associations
-  @OneToMany(() => Book, (book) => book.author)
-  books: Promise<Book[]>;
+  @Field(() => [Book], { nullable: true })
+  @OneToMany(() => Book, (book) => book.author, {
+    cascade: true,
+    lazy: false,
+    onDelete: 'CASCADE',
+    nullable: true,
+  })
+  books: Book[];
 }

@@ -1,20 +1,24 @@
 import { Injectable } from '@nestjs/common';
 import Author from './author.entity';
 import { AuthorRepository } from './author.repository';
-import { AddAuthorInput, UpdateAuthorInput } from './dto/author.dto';
+import { CreateAuthorInput, UpdateAuthorInput } from './dto/author.dto';
 
 @Injectable()
 export class AuthorService {
   constructor(private authorRepository: AuthorRepository) {}
 
-  async findAll(): Promise<Author[]> {
-    return this.authorRepository.find();
+  async findAll(options = {}): Promise<Author[]> {
+    return this.authorRepository.find(options);
   }
 
-  async create(author: AddAuthorInput): Promise<Author> {
+  async findOne(options = {}): Promise<Author> {
+    return this.authorRepository.findOne(options);
+  }
+
+  async create(author: CreateAuthorInput): Promise<Author> {
     const createdAuthor = await this.authorRepository.create(author);
-    await this.authorRepository.save(createdAuthor);
-    return createdAuthor;
+    const result = await this.authorRepository.save(createdAuthor);
+    return result;
   }
 
   async update(author: UpdateAuthorInput): Promise<Author> {
