@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { getConnectionOptions } from 'typeorm';
@@ -7,8 +7,7 @@ import { AppService } from './app.service';
 import { TypeGraphQLModule } from 'typegraphql-nestjs';
 import { AppResolver } from './app.resolver';
 import { CommonModule } from '@lib/common';
-
-console.log({ CommonModule });
+import { LoggerMiddleware } from '@lib/common';
 
 @Module({
   imports: [
@@ -46,4 +45,8 @@ console.log({ CommonModule });
   controllers: [AppController],
   providers: [AppService, AppResolver],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+  }
+}

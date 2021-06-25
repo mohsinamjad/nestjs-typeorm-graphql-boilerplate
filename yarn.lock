@@ -1782,6 +1782,11 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/validator/-/validator-13.1.4.tgz#d2e3c27523ce1b5d9dc13d16cbce65dc4db2adbe"
   integrity sha1-0uPCdSPOG12dwT0Wy85l3E2yrb4=
 
+"@types/webpack-env@^1.16.0":
+  version "1.16.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/webpack-env/-/webpack-env-1.16.0.tgz#8c0a9435dfa7b3b1be76562f3070efb3f92637b4"
+  integrity sha1-jAqUNd+ns7G+dlYvMHDvs/kmN7Q=
+
 "@types/websocket@1.0.2":
   version "1.0.2"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/websocket/-/websocket-1.0.2.tgz#d2855c6a312b7da73ed16ba6781815bf30c6187a"
