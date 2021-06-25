@@ -1,5 +1,12 @@
-import { Controller, Get, ParseIntPipe, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  ParseIntPipe,
+  Query,
+  UseInterceptors,
+} from '@nestjs/common';
 import { AppService } from './app.service';
+import { DurationInterceptor } from '@lib/common/interceptors/duration-interceptor';
 
 @Controller()
 export class AppController {
@@ -10,7 +17,8 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get()
+  @UseInterceptors(DurationInterceptor)
+  @Get('getid')
   async findOne(@Query('id', ParseIntPipe) id: number) {
     return id;
   }
