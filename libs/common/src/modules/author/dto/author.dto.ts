@@ -2,12 +2,16 @@ import { InputType, Field } from 'type-graphql';
 import Book from '../../book/book.entity';
 import Author from '../author.entity';
 import { CreateBookInputWithoutAuthor } from '../../book/dto/book.dto';
+import { IsString, IsInt, IsOptional } from 'class-validator';
 
 @InputType({ description: 'new author data' })
 export class CreateAuthorInput implements Partial<Author> {
+  @IsString()
   @Field()
   name: string;
 
+  @IsOptional()
+  @IsString()
   @Field({ nullable: true })
   phone?: string;
 
@@ -17,12 +21,15 @@ export class CreateAuthorInput implements Partial<Author> {
 
 @InputType({ description: 'update author data' })
 export class UpdateAuthorInput implements Partial<Author> {
+  @IsInt()
   @Field({ nullable: false })
   id: number;
 
+  @IsString()
   @Field({ nullable: true })
   name?: string;
 
+  @IsString()
   @Field({ nullable: true })
   phone?: string;
 }

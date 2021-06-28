@@ -31,7 +31,12 @@ export default class Book extends BaseEntity {
   updatedAt: Date;
 
   @Field(() => Author)
-  @ManyToOne(() => Author, (author) => author.books)
+  @ManyToOne(() => Author, (author) => author.books, {
+    cascade: true,
+    lazy: false,
+    onDelete: 'CASCADE',
+    nullable: true,
+  })
   @JoinColumn({ name: 'author_id' })
   author: Author;
 }

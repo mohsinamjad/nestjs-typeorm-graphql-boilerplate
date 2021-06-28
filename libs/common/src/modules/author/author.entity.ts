@@ -34,11 +34,6 @@ export default class Author {
 
   // Associations
   @Field(() => [Book], { nullable: true })
-  @OneToMany(() => Book, (book) => book.author, {
-    cascade: true,
-    lazy: false,
-    onDelete: 'CASCADE',
-    nullable: true,
-  })
+  @OneToMany(() => Book, (book) => book.author)
   books: Book[];
 }
