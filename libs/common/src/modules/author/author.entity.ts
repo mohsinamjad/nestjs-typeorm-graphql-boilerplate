@@ -1,4 +1,4 @@
-import { Field, ObjectType } from 'type-graphql';
+import { Field, Int, ObjectType } from 'type-graphql';
 import {
   Column,
   CreateDateColumn,
@@ -8,7 +8,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import Book from '../book/book.entity';
-
 @ObjectType()
 @Entity({ name: 'authors' })
 export default class Author {
@@ -34,6 +33,12 @@ export default class Author {
 
   // Associations
   @Field(() => [Book], { nullable: true })
-  @OneToMany(() => Book, (book) => book.author)
+  @OneToMany(() => Book, (book) => book.author, {
+    cascade: true,
+    nullable: true,
+  })
   books: Book[];
+
+  @Field(() => Int)
+  virtualField: number;
 }

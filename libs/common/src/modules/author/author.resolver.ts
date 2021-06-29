@@ -7,6 +7,7 @@ import {
   Resolver,
   Root,
 } from 'type-graphql';
+import Book from '../book/book.entity';
 import Author from './author.entity';
 import { AuthorService } from './author.service';
 import { CreateAuthorInput, UpdateAuthorInput } from './dto/author.dto';
@@ -36,7 +37,7 @@ export class AuthorResolver {
   }
 
   @FieldResolver()
-  async books(@Root() root: Author) {
+  async books(@Root() root: Author): Promise<Book[]> {
     const { books } = await this.authorService.findOne({
       relations: ['books'],
       where: {
@@ -44,6 +45,11 @@ export class AuthorResolver {
       },
     });
     return books;
+  }
+
+  @FieldResolver()
+  async virtualField(@Root() root: Author): Promise<number> {
+    return root.id;
   }
 }
 
