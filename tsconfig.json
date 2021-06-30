@@ -12,11 +12,17 @@
     "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@lib/common": [
+      "@libs/common": [
         "libs/common/src"
       ],
-      "@lib/common/*": [
+      "@libs/common/*": [
         "libs/common/src/*"
+      ],
+      "@libs/auth": [
+        "libs/auth/src"
+      ],
+      "@libs/auth/*": [
+        "libs/auth/src/*"
       ]
     }
   }

@@ -6,7 +6,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 import { AppService } from './app.service';
-import { DurationInterceptor } from '@lib/common/interceptors/duration-interceptor';
+import { DurationInterceptor } from '@libs/common/interceptors/duration-interceptor';
 
 @Controller()
 export class AppController {

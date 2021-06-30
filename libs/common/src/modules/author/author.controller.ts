@@ -1,5 +1,5 @@
-import { ClassValidationPipe } from '@lib/common/pipes';
-import { DurationInterceptor } from '@lib/common/interceptors/duration-interceptor';
+import { ClassValidationPipe } from '@libs/common/pipes';
+import { DurationInterceptor } from '@libs/common/interceptors/duration-interceptor';
 import {
   Controller,
   Get,

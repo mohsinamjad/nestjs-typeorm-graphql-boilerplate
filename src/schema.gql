@@ -39,19 +39,31 @@ input CreateBookInputWithoutAuthor {
   title: String!
 }
 
+"""new user data"""
+input CreateUserInput {
+  email: String!
+  name: String!
+  password: String!
+  phone: String
+}
+
 type Mutation {
   createAuthor(data: CreateAuthorInput!): Author!
   createBook(data: CreateBookInputWithAuthor!): Book!
+  createUser(data: CreateUserInput!): User!
   deleteAuthor(id: Float!): Int!
   deleteBook(id: Float!): Int!
+  deleteUser(id: Float!): Int!
   updateAuthor(data: UpdateAuthorInput!): Author!
   updateBook(data: UpdateBookInput!): Book!
+  updateUser(data: UpdateUserInput!): User!
 }
 
 type Query {
   authors: [Author!]!
   books: [Book!]!
   sayHello: String!
+  users: [User!]!
 }
 
 """
@@ -69,4 +81,21 @@ input UpdateAuthorInput {
 """update book data"""
 input UpdateBookInput {
   title: String!
+}
+
+"""update user data"""
+input UpdateUserInput {
+  email: String!
+  id: Float!
+  name: String
+  phone: String
+}
+
+type User {
+  createdAt: Timestamp!
+  email: String!
+  id: Float!
+  name: String!
+  phone: String
+  updatedAt: Timestamp!
 }

@@ -6,8 +6,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeGraphQLModule } from 'typegraphql-nestjs';
 import { AppResolver } from './app.resolver';
-import { CommonModule } from '@lib/common';
-import { LoggerMiddleware } from '@lib/common';
+import { CommonModule } from '@libs/common';
+import { LoggerMiddleware } from '@libs/common';
+import { AuthModule } from '@libs/auth';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { LoggerMiddleware } from '@lib/common';
       context: ({ req }) => ({ currentUser: req.user }),
     }),
     CommonModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService, AppResolver],
