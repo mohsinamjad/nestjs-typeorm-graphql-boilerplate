@@ -1,4 +1,7 @@
-import { Arg, Int, Mutation, Query, Resolver } from 'type-graphql';
+import { CurrentUser } from '@libs/auth/decorators/gql-current-user';
+import { JwtAuthGuard } from '@libs/auth/guards/jwt-auth-guard';
+import { UseGuards } from '@nestjs/common';
+import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateUserInput, UpdateUserInput } from './dto/user.dto';
 import User from './user.entity';
 import { UserService } from './user.service';
@@ -7,23 +10,29 @@ import { UserService } from './user.service';
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
+  @UseGuards(JwtAuthGuard)
+  @Query(() => User)
+  whoAmI(@CurrentUser() user: User) {
+    return this.userService.findOne({ where: { id: user?.id } });
+  }
+
   @Query(() => [User])
   async users(): Promise<User[]> {
     return this.userService.findAll();
   }
 
   @Mutation(() => User)
-  async createUser(@Arg('data') user: CreateUserInput): Promise<User> {
+  async createUser(@Args('data') user: CreateUserInput): Promise<User> {
     return this.userService.create(user);
   }
 
   @Mutation(() => User)
-  async updateUser(@Arg('data') user: UpdateUserInput): Promise<User> {
+  async updateUser(@Args('data') user: UpdateUserInput): Promise<User> {
     return this.userService.update(user);
   }
 
   @Mutation(() => Int)
-  async deleteUser(@Arg('id') id: number): Promise<number> {
+  async deleteUser(@Args('id') id: number): Promise<number> {
     return this.userService.delete(id);
   }
 }

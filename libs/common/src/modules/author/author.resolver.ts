@@ -1,12 +1,12 @@
 import {
-  Arg,
-  FieldResolver,
+  Args,
+  ResolveField,
   Int,
   Mutation,
   Query,
   Resolver,
   Root,
-} from 'type-graphql';
+} from '@nestjs/graphql';
 import Book from '../book/book.entity';
 import Author from './author.entity';
 import { AuthorService } from './author.service';
@@ -22,21 +22,21 @@ export class AuthorResolver {
   }
 
   @Mutation(() => Author)
-  async createAuthor(@Arg('data') author: CreateAuthorInput): Promise<Author> {
+  async createAuthor(@Args('data') author: CreateAuthorInput): Promise<Author> {
     return this.authorService.create(author);
   }
 
   @Mutation(() => Author)
-  async updateAuthor(@Arg('data') author: UpdateAuthorInput): Promise<Author> {
+  async updateAuthor(@Args('data') author: UpdateAuthorInput): Promise<Author> {
     return this.authorService.update(author);
   }
 
   @Mutation(() => Int)
-  async deleteAuthor(@Arg('id') id: number): Promise<number> {
+  async deleteAuthor(@Args('id') id: number): Promise<number> {
     return this.authorService.delete(id);
   }
 
-  @FieldResolver()
+  @ResolveField()
   async books(@Root() root: Author): Promise<Book[]> {
     const { books } = await this.authorService.findOne({
       relations: ['books'],
@@ -47,7 +47,7 @@ export class AuthorResolver {
     return books;
   }
 
-  @FieldResolver()
+  @ResolveField()
   async virtualField(@Root() root: Author): Promise<number> {
     return root.id;
   }

@@ -1,4 +1,4 @@
-import { InputType, Field } from 'type-graphql';
+import { InputType, Field } from '@nestjs/graphql';
 import Author from '../../author/author.entity';
 import { CreateAuthorInput } from '../../author/dto/author.dto';
 import Book from '../book.entity';

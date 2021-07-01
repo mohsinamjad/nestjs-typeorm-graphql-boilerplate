@@ -1,4 +1,4 @@
-import { Arg, Int, Mutation, Query, Resolver } from 'type-graphql';
+import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import Book from './book.entity';
 import { BookService } from './book.service';
 import { CreateBookInputWithAuthor, UpdateBookInput } from './dto/book.dto';
@@ -14,18 +14,18 @@ export class BookResolver {
 
   @Mutation(() => Book)
   async createBook(
-    @Arg('data') book: CreateBookInputWithAuthor,
+    @Args('data') book: CreateBookInputWithAuthor,
   ): Promise<Book> {
     return this.bookService.create(book);
   }
 
   @Mutation(() => Book)
-  async updateBook(@Arg('data') book: UpdateBookInput): Promise<Book> {
+  async updateBook(@Args('data') book: UpdateBookInput): Promise<Book> {
     return this.bookService.update(book);
   }
 
   @Mutation(() => Int)
-  async deleteBook(@Arg('id') id: number): Promise<number> {
+  async deleteBook(@Args('id') id: number): Promise<number> {
     return this.bookService.delete(id);
   }
 }
