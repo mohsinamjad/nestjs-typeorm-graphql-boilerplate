@@ -1,7 +1,16 @@
 import { CurrentUser } from '@libs/auth/decorators/gql-current-user';
 import { JwtAuthGuard } from '@libs/auth/guards/jwt-auth-guard';
 import { UseGuards } from '@nestjs/common';
-import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Int,
+  Mutation,
+  Query,
+  ResolveField,
+  Resolver,
+  Root,
+} from '@nestjs/graphql';
+import Role from '../role/role.entity';
 import { CreateUserInput, UpdateUserInput } from './dto/user.dto';
 import User from './user.entity';
 import { UserService } from './user.service';
@@ -34,5 +43,16 @@ export class UserResolver {
   @Mutation(() => Int)
   async deleteUser(@Args('id') id: number): Promise<number> {
     return this.userService.delete(id);
+  }
+
+  @ResolveField()
+  async roles(@Root() root: User): Promise<Role[]> {
+    const { roles } = await this.userService.findOne({
+      relations: ['roles'],
+      where: {
+        id: root.id,
+      },
+    });
+    return roles;
   }
 }

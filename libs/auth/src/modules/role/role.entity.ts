@@ -3,15 +3,16 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinTable,
   ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import Role from '../role/role.entity';
+import User from '../user/user.entity';
 
 @ObjectType()
-@Entity({ name: 'users' })
-export default class User {
+@Entity({ name: 'roles' })
+export default class Role {
   @Field()
   @PrimaryGeneratedColumn()
   id: number;
@@ -19,17 +20,6 @@ export default class User {
   @Field()
   @Column()
   name: string;
-
-  @Field()
-  @Column()
-  email: string;
-
-  @Column()
-  password: string;
-
-  @Field({ nullable: true })
-  @Column({ nullable: true })
-  phone?: string;
 
   @Field()
   @CreateDateColumn({ name: 'created_at' })
@@ -40,11 +30,10 @@ export default class User {
   updatedAt: Date;
 
   // Associations
-  @Field(() => [Role], { nullable: true })
-  @ManyToMany(() => Role, (role: Role) => role.users, {
-    cascade: true,
-    nullable: true,
+  @Field(() => [User], { nullable: true })
+  @ManyToMany(() => User, (user: User) => user.roles, {
     onDelete: 'CASCADE',
   })
-  roles: Role[];
+  @JoinTable()
+  users: User[];
 }

@@ -7,10 +7,12 @@ import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { JWT_SECRET } from './constants';
 import { JwtStrategy } from './passport-strategies/jwt.strategy';
+import { RoleModule } from './modules/role/role.module';
 
 @Module({
   imports: [
     UserModule,
+    RoleModule,
     PassportModule,
     JwtModule.register({
       secret: JWT_SECRET,
