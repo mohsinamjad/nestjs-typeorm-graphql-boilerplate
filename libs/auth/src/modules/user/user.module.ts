@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RoleRepository } from '../role/role.repository';
 import { UserController } from './user.controller';
 import { UserRepository } from './user.repository';
 import { UserResolver } from './user.resolver';
@@ -14,6 +15,7 @@ import { UserService } from './user.service';
     TypeOrmModule.forFeature([
       // Repo or Entity
       UserRepository,
+      RoleRepository,
     ]),
   ],
   providers: [UserResolver, UserService],

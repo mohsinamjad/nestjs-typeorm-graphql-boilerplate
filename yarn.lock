@@ -713,6 +713,13 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha1-daLotRy3WKdVPWgEpZMteqznXDk=
 
+"@casl/ability@^5.3.1":
+  version "5.3.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@casl/ability/-/ability-5.3.1.tgz#20480924cc7f70e08dfba8c1b8808f20b81b9a6a"
+  integrity sha1-IEgJJMx/cOCN+6jBuICPILgbmmo=
+  dependencies:
+    "@ucast/mongo2js" "^1.3.0"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1713,6 +1720,11 @@
     "@types/koa-compose" "*"
     "@types/node" "*"
 
+"@types/lodash@^4.14.170":
+  version "4.14.170"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/lodash/-/lodash-4.14.170.tgz#0d67711d4bf7f4ca5147e9091b847479b87925d6"
+  integrity sha1-DWdxHUv39MpRR+kJG4R0ebh5JdY=
+
 "@types/long@^4.0.0":
   version "4.0.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/long/-/long-4.0.1.tgz#459c65fa1867dafe6a8f322c4c51695663cc55e9"
@@ -1952,6 +1964,34 @@
   dependencies:
     "@typescript-eslint/types" "4.27.0"
     eslint-visitor-keys "^2.0.0"
+
+"@ucast/core@^1.0.0", "@ucast/core@^1.4.1", "@ucast/core@^1.6.1":
+  version "1.10.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@ucast/core/-/core-1.10.0.tgz#a9c3a1fd3ce6197698c2e64e7c58246b721f5aa1"
+  integrity sha1-qcOh/TzmGXaYwuZOfFgka3IfWqE=
+
+"@ucast/js@^3.0.0":
+  version "3.0.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@ucast/js/-/js-3.0.1.tgz#679e4d17771c55cfa4b342abe33a4e5ded32c530"
+  integrity sha1-Z55NF3ccVc+ks0Kr4zpOXe0yxTA=
+  dependencies:
+    "@ucast/core" "^1.0.0"
+
+"@ucast/mongo2js@^1.3.0":
+  version "1.3.2"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@ucast/mongo2js/-/mongo2js-1.3.2.tgz#e2d4f1e2f7b181aa58ff8830c20e799c6997a1b1"
+  integrity sha1-4tTx4vexgapY/4gwwg55nGmXobE=
+  dependencies:
+    "@ucast/core" "^1.6.1"
+    "@ucast/js" "^3.0.0"
+    "@ucast/mongo" "^2.4.0"
+
+"@ucast/mongo@^2.4.0":
+  version "2.4.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@ucast/mongo/-/mongo-2.4.1.tgz#da18b9dc962128313f399b3a77e81af7dfc2c3c3"
+  integrity sha1-2hi53JYhKDE/OZs6d+ga99/Cw8M=
+  dependencies:
+    "@ucast/core" "^1.4.1"
 
 "@webassemblyjs/ast@1.11.0":
   version "1.11.0"

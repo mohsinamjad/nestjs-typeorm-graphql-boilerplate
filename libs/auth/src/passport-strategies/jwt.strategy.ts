@@ -22,6 +22,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   async validate(payload: any) {
     //   can be optional for stateless JWT check
     const user = await this.userService.findOne({
+      relations: ['roles'],
       where: { email: payload.email, id: payload.sub },
     });
     if (!user) throw new UnauthorizedException();

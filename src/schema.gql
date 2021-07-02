@@ -25,6 +25,14 @@ type Author {
   virtualField: Int!
 }
 
+type Role {
+  id: Float!
+  name: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  users: [User!]
+}
+
 type User {
   id: Float!
   name: String!
@@ -32,6 +40,7 @@ type User {
   phone: String
   createdAt: DateTime!
   updatedAt: DateTime!
+  roles: [Role!]
 }
 
 type Query {
@@ -40,6 +49,7 @@ type Query {
   books: [Book!]!
   whoAmI: User!
   users: [User!]!
+  roles: [Role!]!
 }
 
 type Mutation {
@@ -52,6 +62,9 @@ type Mutation {
   createUser(data: CreateUserInput!): User!
   updateUser(data: UpdateUserInput!): User!
   deleteUser(id: Float!): Int!
+  createRole(data: CreateRoleInput!): Role!
+  updateRole(data: UpdateRoleInput!): Role!
+  deleteRole(id: Float!): Int!
 }
 
 """new author data"""
@@ -90,6 +103,12 @@ input CreateUserInput {
   email: String!
   password: String!
   phone: String
+  roles: [CreateRoleInput!]
+}
+
+"""new role data"""
+input CreateRoleInput {
+  name: String!
 }
 
 """update user data"""
@@ -98,4 +117,10 @@ input UpdateUserInput {
   name: String
   email: String!
   phone: String
+}
+
+"""update role data"""
+input UpdateRoleInput {
+  id: Float!
+  name: String!
 }

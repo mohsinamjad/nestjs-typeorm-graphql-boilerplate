@@ -1,6 +1,8 @@
 import { InputType, Field } from '@nestjs/graphql';
 import User from '../user.entity';
 import { IsString, IsInt, IsOptional, IsEmail } from 'class-validator';
+import Role from '../../role/role.entity';
+import { CreateRoleInput } from '../../role/dto/role.dto';
 
 @InputType({ description: 'new user data' })
 export class CreateUserInput implements Partial<User> {
@@ -20,6 +22,10 @@ export class CreateUserInput implements Partial<User> {
   @IsString()
   @Field({ nullable: true })
   phone?: string;
+
+  @IsOptional()
+  @Field(() => [CreateRoleInput], { nullable: true })
+  roles?: Role[];
 }
 
 @InputType({ description: 'update user data' })
