@@ -10,6 +10,9 @@ import { CommonModule } from '@libs/common';
 import { LoggerMiddleware } from '@libs/common';
 import { AuthModule } from '@libs/auth';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ThrottlerModule } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
+import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
 
 @Module({
   imports: [
@@ -19,6 +22,10 @@ import { GraphQLModule } from '@nestjs/graphql';
        */
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       playground: true,
+      cors: {
+        origin: '*',
+        credentials: true,
+      },
     }),
     /**
      * Once this is done, the TypeORM Connection and EntityManager objects will be available to inject
@@ -36,17 +43,22 @@ import { GraphQLModule } from '@nestjs/graphql';
           autoLoadEntities: true,
         }),
     }),
-
-    // TypeGraphQLModule.forRoot({
-    //   emitSchemaFile: join(process.cwd(), 'src/schema.gql'),
-    //   dateScalarMode: 'timestamp',
-    //   context: ({ req }) => ({ currentUser: req.user }),
-    // }),
+    ThrottlerModule.forRoot({
+      ttl: 10,
+      limit: 5,
+    }),
     CommonModule,
     AuthModule,
   ],
   controllers: [AppController],
-  providers: [AppService, AppResolver],
+  providers: [
+    AppService,
+    AppResolver,
+    {
+      provide: APP_GUARD,
+      useClass: CustomThrottlerGuard,
+    },
+  ],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
