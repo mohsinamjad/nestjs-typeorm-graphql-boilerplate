@@ -1897,6 +1897,13 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@types/yargs@^17.0.0":
+  version "17.0.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/yargs/-/yargs-17.0.0.tgz#32f740934eedf0a5cd19470249f317755c91f1ae"
+  integrity sha1-MvdAk07t8KXNGUcCSfMXdVyR8a4=
+  dependencies:
+    "@types/yargs-parser" "*"
+
 "@types/zen-observable@^0.8.0", "@types/zen-observable@^0.8.2":
   version "0.8.2"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/zen-observable/-/zen-observable-0.8.2.tgz#808c9fa7e4517274ed555fa158f2de4b4f468e71"
@@ -5790,6 +5797,16 @@ lodash.clonedeep@^4.5.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
+lodash.compact@^3.0.1:
+  version "3.0.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.compact/-/lodash.compact-3.0.1.tgz#540ce3837745975807471e16b4a2ba21e7256ca5"
+  integrity sha1-VAzjg3dFl1gHRx4WtKK6IeclbKU=
+
+lodash.flattendeep@^4.4.0:
+  version "4.4.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
+  integrity sha1-+wMJF/hqMTTlvJvsDWngAT3f7bI=
+
 lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
@@ -6236,6 +6253,14 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha1-tKr7k+OustgXTKU88WOrfXMIMF8=
+
+nestjs-command@^2.0.0:
+  version "2.0.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/nestjs-command/-/nestjs-command-2.0.0.tgz#b0a04904e8962c6dfa2e058a5f72fad52e45c03f"
+  integrity sha1-sKBJBOiWLG36LgWKX3L61S5FwD8=
+  dependencies:
+    lodash.compact "^3.0.1"
+    lodash.flattendeep "^4.4.0"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -8705,6 +8730,19 @@ yargs@^16.0.0, yargs@^16.2.0:
   version "16.2.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha1-HIK/D2tqZur85+8w43b0mhJHf2Y=
+  dependencies:
+    cliui "^7.0.2"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.0"
+    y18n "^5.0.5"
+    yargs-parser "^20.2.2"
+
+yargs@^17.0.1:
+  version "17.0.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/yargs/-/yargs-17.0.1.tgz#6a1ced4ed5ee0b388010ba9fd67af83b9362e0bb"
+  integrity sha1-ahztTtXuCziAELqf1nr4O5Ni4Ls=
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"

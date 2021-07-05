@@ -1,6 +1,7 @@
-import { CurrentUser } from '@libs/auth/decorators/gql-current-user';
+import { Action } from '@libs/auth/constants';
+import { CaslAbility, CurrentUser } from '@libs/auth/decorators/current-user';
 import { JwtAuthGuard } from '@libs/auth/guards/jwt-auth-guard';
-import { UseGuards } from '@nestjs/common';
+import { UnauthorizedException, UseGuards } from '@nestjs/common';
 import {
   Args,
   Int,
@@ -10,16 +11,20 @@ import {
   Resolver,
   Root,
 } from '@nestjs/graphql';
+import { Connection } from 'typeorm';
 import Role from '../role/role.entity';
 import { CreateUserInput, UpdateUserInput } from './dto/user.dto';
 import User from './user.entity';
 import { UserService } from './user.service';
 
+@UseGuards(JwtAuthGuard)
 @Resolver(() => User)
 export class UserResolver {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private connection: Connection,
+  ) {}
 
-  @UseGuards(JwtAuthGuard)
   @Query(() => User)
   whoAmI(@CurrentUser() user: User) {
     return this.userService.findOne({ where: { id: user?.id } });
@@ -31,18 +36,41 @@ export class UserResolver {
   }
 
   @Mutation(() => User)
-  async createUser(@Args('data') user: CreateUserInput): Promise<User> {
-    return this.userService.create(user);
+  async createUser(
+    @Args('data') user: CreateUserInput,
+    @CaslAbility() ability,
+  ): Promise<User> {
+    if (ability.can(Action.Create, 'user')) {
+      return this.userService.create(user);
+    } else {
+      throw new UnauthorizedException();
+    }
   }
 
   @Mutation(() => User)
-  async updateUser(@Args('data') user: UpdateUserInput): Promise<User> {
-    return this.userService.update(user);
+  async updateUser(
+    @Args('data') user: UpdateUserInput,
+    @CaslAbility() ability,
+  ): Promise<User> {
+    const userInstance = this.connection.manager.create(User, user);
+    if (ability.can(Action.Update, userInstance)) {
+      return this.userService.update(user);
+    } else {
+      throw new UnauthorizedException();
+    }
   }
 
   @Mutation(() => Int)
-  async deleteUser(@Args('id') id: number): Promise<number> {
-    return this.userService.delete(id);
+  async deleteUser(
+    @Args('id') id: number,
+    @CaslAbility() ability,
+  ): Promise<number> {
+    const userInstance = this.connection.manager.create(User, { id });
+    if (ability.can(Action.Delete, userInstance)) {
+      return this.userService.delete(id);
+    } else {
+      throw new UnauthorizedException();
+    }
   }
 
   @ResolveField()

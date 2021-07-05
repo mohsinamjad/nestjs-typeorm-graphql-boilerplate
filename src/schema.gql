@@ -45,26 +45,54 @@ type User {
 
 type Query {
   sayHello: String!
-  authors: [Author!]!
-  books: [Book!]!
   whoAmI: User!
   users: [User!]!
   roles: [Role!]!
+  authors: [Author!]!
+  books: [Book!]!
 }
 
 type Mutation {
-  createAuthor(data: CreateAuthorInput!): Author!
-  updateAuthor(data: UpdateAuthorInput!): Author!
-  deleteAuthor(id: Float!): Int!
-  createBook(data: CreateBookInputWithAuthor!): Book!
-  updateBook(data: UpdateBookInput!): Book!
-  deleteBook(id: Float!): Int!
   createUser(data: CreateUserInput!): User!
   updateUser(data: UpdateUserInput!): User!
   deleteUser(id: Float!): Int!
   createRole(data: CreateRoleInput!): Role!
   updateRole(data: UpdateRoleInput!): Role!
   deleteRole(id: Float!): Int!
+  createAuthor(data: CreateAuthorInput!): Author!
+  updateAuthor(data: UpdateAuthorInput!): Author!
+  deleteAuthor(id: Float!): Int!
+  createBook(data: CreateBookInputWithAuthor!): Book!
+  updateBook(data: UpdateBookInput!): Book!
+  deleteBook(id: Float!): Int!
+}
+
+"""new user data"""
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  phone: String
+  roles: [CreateRoleInput!]
+}
+
+"""new role data"""
+input CreateRoleInput {
+  name: String!
+}
+
+"""update user data"""
+input UpdateUserInput {
+  id: Float!
+  name: String
+  email: String
+  phone: String
+}
+
+"""update role data"""
+input UpdateRoleInput {
+  id: Float!
+  name: String!
 }
 
 """new author data"""
@@ -95,32 +123,4 @@ input CreateBookInputWithAuthor {
 """update book data"""
 input UpdateBookInput {
   title: String!
-}
-
-"""new user data"""
-input CreateUserInput {
-  name: String!
-  email: String!
-  password: String!
-  phone: String
-  roles: [CreateRoleInput!]
-}
-
-"""new role data"""
-input CreateRoleInput {
-  name: String!
-}
-
-"""update user data"""
-input UpdateUserInput {
-  id: Float!
-  name: String
-  email: String!
-  phone: String
-}
-
-"""update role data"""
-input UpdateRoleInput {
-  id: Float!
-  name: String!
 }

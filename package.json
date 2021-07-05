@@ -12,6 +12,7 @@
     "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
     "typeorm:migrate:up": "NODE_ENV=migration node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm/cli.js migration:run",
     "typeorm:migrate:down": "NODE_ENV=migration node -r tsconfig-paths/register -r ts-node/register ./node_modules/typeorm/cli.js migration:revert",
+    "app:seed":"CLI_PATH=apps/scratch/src/cli.ts nestjs-command",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -43,6 +44,7 @@
     "graphql-tools": "^7.0.5",
     "helmet": "^4.6.0",
     "lodash": "^4.17.21",
+    "nestjs-command": "^2.0.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
@@ -52,7 +54,8 @@
     "rxjs": "^6.6.6",
     "type-graphql": "^1.1.1",
     "typegraphql-nestjs": "^0.3.1",
-    "typeorm": "^0.2.34"
+    "typeorm": "^0.2.34",
+    "yargs": "^17.0.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
@@ -67,6 +70,7 @@
     "@types/passport-local": "^1.0.33",
     "@types/supertest": "^2.0.10",
     "@types/webpack-env": "^1.16.0",
+    "@types/yargs": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.19.0",
     "@typescript-eslint/parser": "^4.19.0",
     "eslint": "^7.22.0",

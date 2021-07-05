@@ -34,6 +34,6 @@ export default class Role {
   @ManyToMany(() => User, (user: User) => user.roles, {
     onDelete: 'CASCADE',
   })
-  @JoinTable()
+  @JoinTable({ name: 'user_roles' })
   users: User[];
 }

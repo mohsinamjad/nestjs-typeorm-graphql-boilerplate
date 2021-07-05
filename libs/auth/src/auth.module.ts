@@ -1,19 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { UserModule } from './modules/user/user.module';
-import { PassportModule } from '@nestjs/passport';
-import { LocalStrategy } from './passport-strategies/local.strategy';
-import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+import { CaslModule } from './casl/casl.module';
 import { JWT_SECRET } from './constants';
-import { JwtStrategy } from './passport-strategies/jwt.strategy';
 import { RoleModule } from './modules/role/role.module';
+import { UserModule } from './modules/user/user.module';
+import { JwtStrategy } from './passport-strategies/jwt.strategy';
+import { LocalStrategy } from './passport-strategies/local.strategy';
 
 @Module({
   imports: [
     UserModule,
     RoleModule,
     PassportModule,
+    CaslModule,
     JwtModule.register({
       secret: JWT_SECRET,
       signOptions: { expiresIn: '10h' },

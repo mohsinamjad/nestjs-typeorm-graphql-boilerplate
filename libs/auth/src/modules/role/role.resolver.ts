@@ -1,8 +1,11 @@
+import { JwtAuthGuard } from '@libs/auth/guards/jwt-auth-guard';
+import { UseGuards } from '@nestjs/common';
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateRoleInput, UpdateRoleInput } from './dto/role.dto';
 import Role from './role.entity';
 import { RoleService } from './role.service';
 
+@UseGuards(JwtAuthGuard)
 @Resolver(() => Role)
 export class RoleResolver {
   constructor(private readonly roleService: RoleService) {}

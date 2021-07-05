@@ -39,7 +39,7 @@ export class UpdateUserInput implements Partial<User> {
   name?: string;
 
   @IsEmail()
-  @Field()
+  @Field({ nullable: true })
   email?: string;
 
   @IsString()

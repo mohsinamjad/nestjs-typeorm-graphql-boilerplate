@@ -13,6 +13,7 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
+import { SeedModule } from '@libs/auth/seed/seed.module';
 
 @Module({
   imports: [
@@ -47,6 +48,7 @@ import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
       ttl: 10,
       limit: 5,
     }),
+    SeedModule,
     CommonModule,
     AuthModule,
   ],

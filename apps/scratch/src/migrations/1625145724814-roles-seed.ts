@@ -1,5 +1,4 @@
-import Role from '@libs/auth/modules/role/role.entity';
-import { MigrationInterface, QueryRunner, In } from 'typeorm';
+import { MigrationInterface, QueryRunner } from 'typeorm';
 import { ROLES } from './fixtures/roles';
 
 export class rolesSeed1625145724814 implements MigrationInterface {
