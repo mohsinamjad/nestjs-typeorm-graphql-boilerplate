@@ -65,6 +65,7 @@ type Mutation {
   createBook(data: CreateBookInputWithAuthor!): Book!
   updateBook(data: UpdateBookInput!): Book!
   deleteBook(id: Float!): Int!
+  login(data: loginInput!): String!
 }
 
 """new user data"""
@@ -123,4 +124,10 @@ input CreateBookInputWithAuthor {
 """update book data"""
 input UpdateBookInput {
   title: String!
+}
+
+"""new user data"""
+input loginInput {
+  email: String!
+  password: String!
 }

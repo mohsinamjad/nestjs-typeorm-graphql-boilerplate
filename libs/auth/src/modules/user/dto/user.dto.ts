@@ -46,3 +46,14 @@ export class UpdateUserInput implements Partial<User> {
   @Field({ nullable: true })
   phone?: string;
 }
+
+@InputType({ description: 'new user data' })
+export class loginInput implements Partial<User> {
+  @IsEmail()
+  @Field()
+  email: string;
+
+  @IsString()
+  @Field()
+  password: string;
+}

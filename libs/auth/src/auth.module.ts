@@ -9,6 +9,7 @@ import { RoleModule } from './modules/role/role.module';
 import { UserModule } from './modules/user/user.module';
 import { JwtStrategy } from './passport-strategies/jwt.strategy';
 import { LocalStrategy } from './passport-strategies/local.strategy';
+import { AuthResolver } from './auth.resolver';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { LocalStrategy } from './passport-strategies/local.strategy';
       signOptions: { expiresIn: '10h' },
     }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy, AuthResolver],
   exports: [AuthService],
   controllers: [AuthController],
 })
