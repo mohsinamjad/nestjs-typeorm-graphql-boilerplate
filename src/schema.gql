@@ -2,29 +2,6 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Book {
-  id: Float!
-  title: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  author: Author!
-}
-
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
-type Author {
-  id: Float!
-  name: String!
-  phone: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  books: [Book!]
-  virtualField: Int!
-}
-
 type Role {
   id: Float!
   name: String!
@@ -32,6 +9,11 @@ type Role {
   updatedAt: DateTime!
   users: [User!]
 }
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
 
 type User {
   id: Float!
@@ -41,6 +23,24 @@ type User {
   createdAt: DateTime!
   updatedAt: DateTime!
   roles: [Role!]
+}
+
+type Book {
+  id: Float!
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  author: Author!
+}
+
+type Author {
+  id: Float!
+  name: String!
+  phone: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  books: [Book!]
+  virtualField: Int!
 }
 
 type Query {
