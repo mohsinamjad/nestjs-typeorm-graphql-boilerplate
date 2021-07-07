@@ -29,7 +29,9 @@ export class UserService {
     const transformedUser = {
       ...rest,
       password: hashedPassword,
-      roles: (roles || []).map((role) => mappedRoles[role.name]),
+      roles: (roles || [{ name: 'User' }]).map(
+        (role) => mappedRoles[role.name],
+      ),
     };
     const createdUser = await this.userRepository.create(transformedUser);
     const result = await this.userRepository.save(createdUser);

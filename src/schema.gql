@@ -59,13 +59,13 @@ type Mutation {
   createRole(data: CreateRoleInput!): Role!
   updateRole(data: UpdateRoleInput!): Role!
   deleteRole(id: Float!): Int!
+  login(data: loginInput!): String!
   createAuthor(data: CreateAuthorInput!): Author!
   updateAuthor(data: UpdateAuthorInput!): Author!
   deleteAuthor(id: Float!): Int!
   createBook(data: CreateBookInputWithAuthor!): Book!
   updateBook(data: UpdateBookInput!): Book!
   deleteBook(id: Float!): Int!
-  login(data: loginInput!): String!
 }
 
 """new user data"""
@@ -96,6 +96,12 @@ input UpdateRoleInput {
   name: String!
 }
 
+"""new user data"""
+input loginInput {
+  email: String!
+  password: String!
+}
+
 """new author data"""
 input CreateAuthorInput {
   name: String!
@@ -124,10 +130,4 @@ input CreateBookInputWithAuthor {
 """update book data"""
 input UpdateBookInput {
   title: String!
-}
-
-"""new user data"""
-input loginInput {
-  email: String!
-  password: String!
 }

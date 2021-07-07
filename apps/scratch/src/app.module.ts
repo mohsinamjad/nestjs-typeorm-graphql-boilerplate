@@ -1,7 +1,7 @@
 import { AuthModule } from '@libs/auth';
 import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
 import { SeedModule } from '@libs/auth/seed/seed.module';
-import { CommonModule, LoggerMiddleware } from '@libs/common';
+import { LoggerMiddleware } from '@libs/common';
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
@@ -13,6 +13,8 @@ import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 import { typeOrmConfigAsync } from './config/ormconfig';
+import { AuthorModule } from './modules/author/author.module';
+import { BookModule } from './modules/book/book.module';
 
 @Module({
   imports: [
@@ -42,8 +44,9 @@ import { typeOrmConfigAsync } from './config/ormconfig';
       limit: 5,
     }),
     SeedModule,
-    CommonModule,
     AuthModule,
+    AuthorModule,
+    BookModule,
   ],
   controllers: [AppController],
   providers: [
