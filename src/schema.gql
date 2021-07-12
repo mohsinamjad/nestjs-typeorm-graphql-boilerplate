@@ -45,14 +45,20 @@ type Author {
 
 type Query {
   sayHello: String!
+  books: [Book!]!
+  authors: [Author!]!
   whoAmI: User!
   users: [User!]!
   roles: [Role!]!
-  authors: [Author!]!
-  books: [Book!]!
 }
 
 type Mutation {
+  createBook(data: CreateBookInputWithAuthor!): Book!
+  updateBook(data: UpdateBookInput!): Book!
+  deleteBook(id: Float!): Int!
+  createAuthor(data: CreateAuthorInput!): Author!
+  updateAuthor(data: UpdateAuthorInput!): Author!
+  deleteAuthor(id: Float!): Int!
   createUser(data: CreateUserInput!): User!
   updateUser(data: UpdateUserInput!): User!
   deleteUser(id: Float!): Int!
@@ -60,12 +66,36 @@ type Mutation {
   updateRole(data: UpdateRoleInput!): Role!
   deleteRole(id: Float!): Int!
   login(data: loginInput!): String!
-  createAuthor(data: CreateAuthorInput!): Author!
-  updateAuthor(data: UpdateAuthorInput!): Author!
-  deleteAuthor(id: Float!): Int!
-  createBook(data: CreateBookInputWithAuthor!): Book!
-  updateBook(data: UpdateBookInput!): Book!
-  deleteBook(id: Float!): Int!
+}
+
+"""new book data"""
+input CreateBookInputWithAuthor {
+  title: String!
+  author: CreateAuthorInput!
+}
+
+"""new author data"""
+input CreateAuthorInput {
+  name: String!
+  phone: String
+  books: [CreateBookInputWithoutAuthor!]
+}
+
+"""new book data"""
+input CreateBookInputWithoutAuthor {
+  title: String!
+}
+
+"""update book data"""
+input UpdateBookInput {
+  title: String!
+}
+
+"""update author data"""
+input UpdateAuthorInput {
+  id: Float!
+  name: String
+  phone: String
 }
 
 """new user data"""
@@ -100,34 +130,4 @@ input UpdateRoleInput {
 input loginInput {
   email: String!
   password: String!
-}
-
-"""new author data"""
-input CreateAuthorInput {
-  name: String!
-  phone: String
-  books: [CreateBookInputWithoutAuthor!]
-}
-
-"""new book data"""
-input CreateBookInputWithoutAuthor {
-  title: String!
-}
-
-"""update author data"""
-input UpdateAuthorInput {
-  id: Float!
-  name: String
-  phone: String
-}
-
-"""new book data"""
-input CreateBookInputWithAuthor {
-  title: String!
-  author: CreateAuthorInput!
-}
-
-"""update book data"""
-input UpdateBookInput {
-  title: String!
 }

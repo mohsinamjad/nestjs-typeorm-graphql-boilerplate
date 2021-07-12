@@ -6,6 +6,8 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { customLogger } from '../logger';
+const logger = customLogger('Duration Interceptor');
 
 @Injectable()
 export class DurationInterceptor implements NestInterceptor {
@@ -13,12 +15,12 @@ export class DurationInterceptor implements NestInterceptor {
     const ctx = context.switchToHttp();
     const req = ctx.getRequest<Request>();
     const now = Date.now();
-    console.log(`duration interceptor before...| ${req.url}`);
+    logger.info(`duration interceptor before...| ${req.url}`);
     return next
       .handle()
       .pipe(
         tap(() =>
-          console.log(
+          logger.info(
             `duration interceptor after... | ${req.url} | ${
               Date.now() - now
             }ms`,

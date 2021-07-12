@@ -23,6 +23,12 @@
       ],
       "@libs/auth/*": [
         "libs/auth/src/*"
+      ],
+      "@libs/sample": [
+        "libs/sample/src"
+      ],
+      "@libs/sample/*": [
+        "libs/sample/src/*"
       ]
     }
   }

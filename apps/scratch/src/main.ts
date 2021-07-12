@@ -1,9 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as helmet from 'helmet';
+import { NestLogger } from '@libs/common/logger/logger-service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
+    logger: new NestLogger(),
     cors: {
       origin: '*',
       credentials: true,

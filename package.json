@@ -110,7 +110,9 @@
       "@libs/common/(.*)": "<rootDir>/libs/common/src/$1",
       "@libs/common": "<rootDir>/libs/common/src",
       "@libs/auth/(.*)": "<rootDir>/libs/auth/src/$1",
-      "@libs/auth": "<rootDir>/libs/auth/src"
+      "@libs/auth": "<rootDir>/libs/auth/src",
+      "@libs/sample/(.*)": "<rootDir>/libs/sample/src/$1",
+      "@libs/sample": "<rootDir>/libs/sample/src"
     }
   }
 }

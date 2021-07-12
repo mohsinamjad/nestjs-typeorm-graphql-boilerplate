@@ -8,13 +8,12 @@ import { APP_GUARD } from '@nestjs/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { SampleModule } from '@libs/sample';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
 import { typeOrmConfigAsync } from './config/ormconfig';
-import { AuthorModule } from './modules/author/author.module';
-import { BookModule } from './modules/book/book.module';
 
 @Module({
   imports: [
@@ -43,10 +42,9 @@ import { BookModule } from './modules/book/book.module';
       ttl: 10,
       limit: 5,
     }),
+    SampleModule,
     SeedModule,
     AuthModule,
-    AuthorModule,
-    BookModule,
   ],
   controllers: [AppController],
   providers: [

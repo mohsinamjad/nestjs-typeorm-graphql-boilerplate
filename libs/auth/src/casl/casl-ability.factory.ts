@@ -8,8 +8,8 @@ import {
 import { Injectable } from '@nestjs/common';
 import { Action } from '../constants';
 import { keyBy } from 'lodash';
-import Role from '../modules/role/role.entity';
-import User from '../modules/user/user.entity';
+import Role from '../resources/role/role.entity';
+import User from '../resources/user/user.entity';
 
 type Subjects = InferSubjects<typeof Role | typeof User> | 'all';
 

@@ -12,6 +12,7 @@ import { DurationInterceptor } from '@libs/common/interceptors/duration-intercep
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @UseInterceptors(DurationInterceptor)
   @Get()
   getHello(): string {
     return this.appService.getHello();

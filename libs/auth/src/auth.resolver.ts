@@ -1,7 +1,7 @@
 import { Injectable, Request } from '@nestjs/common';
 import { Args, Mutation } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
-import { loginInput } from './modules/user/dto/user.dto';
+import { loginInput } from './resources/user/dto/user.dto';
 import { LocalStrategy } from './passport-strategies/local.strategy';
 
 @Injectable()
