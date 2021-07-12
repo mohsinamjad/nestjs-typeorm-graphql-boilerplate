@@ -1,7 +1,5 @@
 import { LoggerService } from '@nestjs/common';
-import { customLogger } from './custom-logger';
-
-const logger = customLogger('NEST');
+import { logger } from './custom-logger';
 
 export class NestLogger implements LoggerService {
   log(message: string) {

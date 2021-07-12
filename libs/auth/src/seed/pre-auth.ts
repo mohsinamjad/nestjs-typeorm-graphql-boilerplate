@@ -2,6 +2,7 @@ import { Command } from 'nestjs-command';
 import { Injectable } from '@nestjs/common';
 import { RoleService } from '../resources/role/role.service';
 import { UserService } from '../resources/user/user.service';
+import { logger } from '@libs/common/logger';
 
 @Injectable()
 export class UserSeed {
@@ -16,7 +17,7 @@ export class UserSeed {
     autoExit: true,
   })
   async create() {
-    console.log('********* CREATING ROLE ************');
+    logger.info('********* CREATING ROLE ************');
     const roles = ['ADMIN', 'USER'];
     const rolesMap = {};
     for (const role of roles) {
@@ -24,7 +25,7 @@ export class UserSeed {
         name: role,
       });
     }
-    console.log('********* CREATING ADMIN USER ************');
+    logger.info('********* CREATING ADMIN USER ************');
     await this.userService.create({
       name: 'Mohsin',
       email: 'mohsinamjad51@gmail.com',

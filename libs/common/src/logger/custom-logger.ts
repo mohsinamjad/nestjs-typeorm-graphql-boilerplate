@@ -1,12 +1,11 @@
-import { isFunction, isObject } from 'lodash';
+import { ConfigService } from '@nestjs/config';
 import {
   createLogger as createWinstonLogger,
   format,
   Logger,
-  LoggerOptions,
   transports,
 } from 'winston';
-import { ConfigService } from '@nestjs/config';
+import WinstonRotate from 'winston-daily-rotate-file';
 
 /**
  * Logging levels in winston conform to the severity ordering
@@ -34,91 +33,58 @@ export const logLevelMapping = {
   [logLevels.error]: 0,
 };
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// https://github.com/winstonjs/winston/issues/890
-
-export class V8StackError {
-  stack: any;
-  customStack: any;
-  constructor(limit = 3) {
-    // Use V8's feature to get a structured stack trace
-    const oldStackTrace = Error.prepareStackTrace;
-    const oldLimit = Error.stackTraceLimit;
-    try {
-      Error.stackTraceLimit = limit; // <- we only want the top couple of elements
-      Error.prepareStackTrace = (err, structuredStackTrace) =>
-        structuredStackTrace;
-      Error.captureStackTrace(this, V8StackError);
-      this.customStack = this.stack; // <- invoke the getter for 'stack'
-    } finally {
-      Error.stackTraceLimit = oldLimit;
-      Error.prepareStackTrace = oldStackTrace;
-    }
-  }
-}
-
-/* eslint-enable @typescript-eslint/no-explicit-any */
-
-function getAndFormatStackTraceElement(fn = 'anonymous'): string {
-  const { stack } = new V8StackError();
-  // position in stacktrace to find deepest caller
-  const CALLER_INDEX = 2;
-  const element = stack[CALLER_INDEX];
-  const fName = element.getFileName();
-  const fileName = fName.substr(fName.lastIndexOf('/') + 1);
-  const functionName = element.getFunctionName() || fn;
-  return `${functionName}(${fileName}:${element.getLineNumber()})`;
-}
-
-export function createLogger(moduleName = '', options: LoggerOptions): Logger {
-  const logger = createWinstonLogger({
-    ...options,
-    level: new ConfigService().get('LOG_LEVEL') || 'info',
-  });
-  // Iterating over enum's keys
-  const levels = Object.keys(logLevels);
-  levels.forEach((level) => {
-    const loggerOld = logger[level];
-    logger[level] = (messageOrOption, metaOrCb, cb) => {
-      const { message, ...meta } = isObject(messageOrOption)
-        ? (messageOrOption as any)
-        : { message: messageOrOption };
-      const msg = message || messageOrOption;
-      const opts = isFunction(metaOrCb) ? meta : { ...meta, ...metaOrCb };
-      opts.sourceFn = getAndFormatStackTraceElement(
-        opts.sourceFn || moduleName,
-      );
-      const callback = isFunction(metaOrCb) ? metaOrCb : cb;
-      loggerOld.call(logger, msg, opts, callback);
-    };
-  });
-  return logger;
-}
-
-const { Console } = transports;
-export const customLogger = (moduleName?: string): Logger => {
-  const logger = createLogger(moduleName, {
-    format: format.json(),
-    transports: [
-      new Console({
-        format: format.combine(
-          format.errors({ stack: true }),
-          format.colorize({ all: true }),
-          format.timestamp(),
-          format.align(),
-          format.printf((info) => {
-            const { timestamp, level, message, sourceFn, stack } = info;
-            // pass sourceFn to override stack source method
-            return `[${timestamp}] [${level}] [${'000'}] [${
-              sourceFn || ''
-            }] [${message.trim()}] ${stack || ''}`;
-          }),
-        ),
+function createConsoleTransport(options) {
+  return new transports.Console({
+    format: format.combine(
+      format.errors({ stack: true }),
+      format.colorize({ all: true }),
+      format.timestamp(),
+      format.align(),
+      format.printf((info) => {
+        const { timestamp, level, message, stack } = info;
+        // pass sourceFn to override stack source method
+        return `[${timestamp}] [${level}] [${message.trim()}] ${stack || ''}`;
       }),
-    ],
+    ),
+    ...options,
+  });
+}
+
+function createFileRotateTransport(options) {
+  return new WinstonRotate(options);
+}
+
+// we pass this function an array of transport objects
+// each transport object has 2 properties: type & options
+function getLoggerTransports(transports) {
+  return transports.map((transport) => {
+    const { type, options } = transport;
+    switch (type) {
+      case 'console':
+        return createConsoleTransport(options);
+      case 'file-rotate':
+        return createFileRotateTransport(options);
+    }
+  });
+}
+
+// our export function which will be invoked by our singleton
+
+export const createLogger = (
+  transports: [{ type: string; options: any }],
+  level = new ConfigService().get('LOG_LEVEL') || logLevels.info,
+): Logger =>
+  createWinstonLogger({
+    format: format.json(),
+    level,
+    transports: getLoggerTransports(transports),
   });
 
-  return logger;
-};
+export const logger = createLogger([
+  {
+    type: 'console',
+    options: {},
+  },
+]);
 
 export { Logger };

@@ -36,7 +36,6 @@ export class AuthorController {
   async create(
     @Body(new ClassValidationPipe()) author: CreateAuthorInput,
   ): Promise<Author> {
-    console.log({ author });
     return this.authorService.create(author);
   }
 
