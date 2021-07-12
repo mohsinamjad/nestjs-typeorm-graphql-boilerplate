@@ -31,8 +31,13 @@ export class BookService {
 
   async delete(id: number, softDelete = false): Promise<number> {
     if (!softDelete) {
-      const { affected } = await this.connection.manager.delete(Book, { id });
-      return affected;
+      const book = await this.connection.manager.findOne(Book, {
+        where: { id },
+        relations: ['author'],
+      });
+      if (!book) return 0;
+      const response = await this.connection.manager.remove(Book, [book]);
+      return response?.length || 0;
     }
   }
 }

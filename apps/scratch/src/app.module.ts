@@ -2,13 +2,14 @@ import { AuthModule } from '@libs/auth';
 import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
 import { SeedModule } from '@libs/auth/seed/seed.module';
 import { LoggerMiddleware } from '@libs/common';
+import { SampleModule } from '@libs/sample';
+import { BullModule } from '@nestjs/bull';
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SampleModule } from '@libs/sample';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
@@ -32,6 +33,12 @@ import { typeOrmConfigAsync } from './config/ormconfig';
       cors: {
         origin: '*',
         credentials: true,
+      },
+    }),
+    BullModule.forRoot({
+      redis: {
+        host: 'localhost',
+        port: 6379,
       },
     }),
     /**

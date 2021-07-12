@@ -1,6 +1,7 @@
-import { LoggerService } from '@nestjs/common';
+import { Injectable, LoggerService } from '@nestjs/common';
 import { logger } from './custom-logger';
 
+@Injectable()
 export class NestLogger implements LoggerService {
   log(message: string) {
     logger.info(message);
@@ -16,5 +17,8 @@ export class NestLogger implements LoggerService {
   }
   verbose(message: string) {
     logger.verbose(message);
+  }
+  info(message: string) {
+    logger.info(message);
   }
 }
