@@ -1536,6 +1536,13 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/compression@^1.7.1":
+  version "1.7.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/compression/-/compression-1.7.1.tgz#d935a1cd6f5cd9a4dc8b0d8aadf2ee91a2975acc"
+  integrity sha1-2TWhzW9c2aTciw2KrfLukaKXWsw=
+  dependencies:
+    "@types/express" "*"
+
 "@types/connect@*":
   version "3.4.34"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/connect/-/connect-3.4.34.tgz#170a40223a6d666006d93ca128af2beb1d9b1901"

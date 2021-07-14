@@ -43,10 +43,21 @@ type Author {
   virtualField: Int!
 }
 
+type Property {
+  id: Float!
+  name: String!
+  value: Float!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  children: [Property!]!
+  parent: Property
+}
+
 type Query {
   sayHello: String!
   books: [Book!]!
   authors: [Author!]!
+  propertys: [Property!]!
   whoAmI: User!
   users: [User!]!
   roles: [Role!]!
@@ -59,6 +70,9 @@ type Mutation {
   createAuthor(data: CreateAuthorInput!): Author!
   updateAuthor(data: UpdateAuthorInput!): Author!
   deleteAuthor(id: Float!): Int!
+  createProperty(data: CreatePropertyInput!): Property!
+  updateProperty(data: UpdatePropertyInput!): Property!
+  deleteProperty(id: Float!): Int!
   createUser(data: CreateUserInput!): User!
   updateUser(data: UpdateUserInput!): User!
   deleteUser(id: Float!): Int!
@@ -96,6 +110,25 @@ input UpdateAuthorInput {
   id: Float!
   name: String
   phone: String
+}
+
+"""new property data"""
+input CreatePropertyInput {
+  name: String!
+  value: Float!
+  parent: PropertyConnectInput
+}
+
+"""property connectInput"""
+input PropertyConnectInput {
+  id: Float!
+}
+
+"""update property data"""
+input UpdatePropertyInput {
+  id: Float!
+  name: String
+  value: Float
 }
 
 """new user data"""
