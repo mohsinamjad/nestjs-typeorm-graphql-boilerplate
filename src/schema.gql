@@ -57,7 +57,7 @@ type Query {
   sayHello: String!
   books: [Book!]!
   authors: [Author!]!
-  propertys: [Property!]!
+  properties: [Property!]!
   whoAmI: User!
   users: [User!]!
   roles: [Role!]!
