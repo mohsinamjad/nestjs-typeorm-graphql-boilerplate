@@ -52,6 +52,17 @@ $ npm run start:dev $appName
 $ npm run start:prod $appName
 ```
 
+## Running & building app in dockerized environment
+
+```bash
+# development in watch mode
+$ APP_NAME=$appName docker-compose up
+
+# production mode
+$ APP_NAME=$appName docker-compose -f docker-compose.prod.yml up
+```
+
+
 ## Test
 
 ```bash
