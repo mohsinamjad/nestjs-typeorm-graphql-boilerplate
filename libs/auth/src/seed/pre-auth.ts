@@ -27,8 +27,8 @@ export class UserSeed {
     }
     logger.info('********* CREATING ADMIN USER ************');
     await this.userService.create({
-      name: 'Mohsin',
-      email: 'mohsinamjad51@gmail.com',
+      name: 'Admin',
+      email: 'superadmin@gmail.com',
       password: 'password',
       roles: [rolesMap['ADMIN']],
     });
