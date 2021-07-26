@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Connection } from "typeorm";
 import { AuthorController } from './author.controller';
 import { AuthorRepository } from './author.repository';
 import { AuthorResolver } from './author.resolver';
@@ -15,8 +16,9 @@ import { AuthorService } from './author.service';
       // Repo or Entity
       AuthorRepository,
     ]),
+    Connection
   ],
-  providers: [AuthorResolver, AuthorService],
+  providers: [AuthorResolver, AuthorService, AuthorRepository],
   controllers: [AuthorController],
 })
 export class AuthorModule {}

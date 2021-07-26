@@ -2,6 +2,17 @@
 # yarn lockfile v1
 
 
+"@angular-devkit/core@11.2.3":
+  version "11.2.3"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@angular-devkit/core/-/core-11.2.3.tgz#322fb08f4e2683a37bd08edecb04ddafa42865d9"
+  integrity sha1-Mi+wj04mg6N70I7eywTdr6QoZdk=
+  dependencies:
+    ajv "6.12.6"
+    fast-json-stable-stringify "2.1.0"
+    magic-string "0.25.7"
+    rxjs "6.6.3"
+    source-map "0.7.3"
+
 "@angular-devkit/core@11.2.4":
   version "11.2.4"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@angular-devkit/core/-/core-11.2.4.tgz#4404b86d8dbdb41a0e3f94cb08ff8604e0c49a2e"
@@ -36,6 +47,15 @@
     inquirer "7.3.3"
     minimist "1.2.5"
     symbol-observable "3.0.0"
+
+"@angular-devkit/schematics@11.2.3":
+  version "11.2.3"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@angular-devkit/schematics/-/schematics-11.2.3.tgz#4f156ff2f723ad5b24a709bf97fe676c9753a544"
+  integrity sha1-TxVv8vcjrVskpwm/l/5nbJdTpUQ=
+  dependencies:
+    "@angular-devkit/core" "11.2.3"
+    ora "5.3.0"
+    rxjs "6.6.3"
 
 "@angular-devkit/schematics@11.2.4":
   version "11.2.4"
@@ -713,7 +733,7 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha1-daLotRy3WKdVPWgEpZMteqznXDk=
 
-"@casl/ability@^5.3.1":
+"@casl/ability@5.3.1":
   version "5.3.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@casl/ability/-/ability-5.3.1.tgz#20480924cc7f70e08dfba8c1b8808f20b81b9a6a"
   integrity sha1-IEgJJMx/cOCN+6jBuICPILgbmmo=
@@ -737,10 +757,10 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
-"@eslint/eslintrc@^0.4.2":
-  version "0.4.2"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@eslint/eslintrc/-/eslintrc-0.4.2.tgz#f63d0ef06f5c0c57d76c4ab5f63d3835c51b0179"
-  integrity sha1-9j0O8G9cDFfXbEq19j04NcUbAXk=
+"@eslint/eslintrc@^0.4.0":
+  version "0.4.3"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
+  integrity sha1-nkKYHvA1vrPdSa3ResuW6P9vOUw=
   dependencies:
     ajv "^6.12.4"
     debug "^4.1.1"
@@ -1205,7 +1225,7 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@microsoft/fetch-event-source/-/fetch-event-source-2.0.1.tgz#9ceecc94b49fbaa15666e38ae8587f64acce007d"
   integrity sha1-nO7MlLSfuqFWZuOK6Fh/ZKzOAH0=
 
-"@nestjs/cli@^7.6.0":
+"@nestjs/cli@7.6.0":
   version "7.6.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/cli/-/cli-7.6.0.tgz#661f99b578284f9124307a8077f004a091b25e77"
   integrity sha1-Zh+ZtXgoT5EkMHqAd/AEoJGyXnc=
@@ -1232,17 +1252,17 @@
     webpack "5.28.0"
     webpack-node-externals "2.5.2"
 
-"@nestjs/common@^7.6.15":
-  version "7.6.18"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/common/-/common-7.6.18.tgz#d89e6d248985eec13af60507a8725cb2142d660a"
-  integrity sha1-2J5tJImF7sE69gUHqHJcshQtZgo=
+"@nestjs/common@7.6.15":
+  version "7.6.15"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/common/-/common-7.6.15.tgz#ae96f18cb6209a21724ffa7ed1a182be1e4fd0af"
+  integrity sha1-rpbxjLYgmiFyT/p+0aGCvh5P0K8=
   dependencies:
     axios "0.21.1"
     iterare "1.2.1"
-    tslib "2.2.0"
+    tslib "2.1.0"
     uuid "8.3.2"
 
-"@nestjs/config@^0.6.3":
+"@nestjs/config@0.6.3":
   version "0.6.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/config/-/config-0.6.3.tgz#ab0c0dccf79696509ced463a888567219c2e5b7d"
   integrity sha1-qwwNzPeWllCc7UY6iIVnIZwuW30=
@@ -1254,20 +1274,20 @@
     lodash.set "4.3.2"
     uuid "8.3.2"
 
-"@nestjs/core@^7.6.15":
-  version "7.6.18"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/core/-/core-7.6.18.tgz#36448f0ae7f7d08f032e1e7e53b4a4c82ae844d7"
-  integrity sha1-NkSPCuf30I8DLh5+U7SkyCroRNc=
+"@nestjs/core@7.6.15":
+  version "7.6.15"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/core/-/core-7.6.15.tgz#dfcc5a7804c10d07f81dde514804b484b909d08a"
+  integrity sha1-38xaeATBDQf4Hd5RSAS0hLkJ0Io=
   dependencies:
     "@nuxtjs/opencollective" "0.3.2"
     fast-safe-stringify "2.0.7"
     iterare "1.2.1"
     object-hash "2.1.1"
     path-to-regexp "3.2.0"
-    tslib "2.2.0"
+    tslib "2.1.0"
     uuid "8.3.2"
 
-"@nestjs/graphql@^7.11.0":
+"@nestjs/graphql@7.11.0":
   version "7.11.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/graphql/-/graphql-7.11.0.tgz#5c2c93dddb1f85956f25dd81cc2df6c2e56d708b"
   integrity sha1-XCyT3dsfhZVvJd2BzC32wuVtcIs=
@@ -1288,7 +1308,7 @@
     apollo-server-testing "^2.21.1"
     ts-morph "^11.0.0"
 
-"@nestjs/jwt@^7.2.0":
+"@nestjs/jwt@7.2.0":
   version "7.2.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/jwt/-/jwt-7.2.0.tgz#d55d15c861b3e0d67a852cbe6131b14c85246852"
   integrity sha1-1V0VyGGz4NZ6hSy+YTGxTIUkaFI=
@@ -1301,21 +1321,32 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/mapped-types/-/mapped-types-0.4.1.tgz#e7fe038f0bdda7b8f858fa79ca8516b8f9069b1a"
   integrity sha1-5/4Djwvdp7j4WPp5yoUWuPkGmxo=
 
-"@nestjs/passport@^7.1.5":
+"@nestjs/passport@7.1.5":
   version "7.1.5"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/passport/-/passport-7.1.5.tgz#b32fc0492008d73ebae4327fbc0012a738a83664"
   integrity sha1-sy/ASSAI1z665DJ/vAASpzioNmQ=
 
-"@nestjs/platform-express@^7.6.15":
-  version "7.6.18"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/platform-express/-/platform-express-7.6.18.tgz#cdf442dfd85948fc7b67bbc4007dddef83cdd4b9"
-  integrity sha1-zfRC39hZSPx7Z7vEAH3d74PN1Lk=
+"@nestjs/platform-express@7.6.15":
+  version "7.6.15"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/platform-express/-/platform-express-7.6.15.tgz#816db6999bf65284d5e1292092ec71acd812fbbb"
+  integrity sha1-gW22mZv2UoTV4SkgkuxxrNgS+7s=
   dependencies:
     body-parser "1.19.0"
     cors "2.8.5"
     express "4.17.1"
     multer "1.4.2"
-    tslib "2.2.0"
+    tslib "2.1.0"
+
+"@nestjs/schematics@7.3.0":
+  version "7.3.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/schematics/-/schematics-7.3.0.tgz#e92d820948f73c77a30e51b06db42e9d2a3699a4"
+  integrity sha1-6S2CCUj3PHejDlGwbbQunSo2maQ=
+  dependencies:
+    "@angular-devkit/core" "11.2.3"
+    "@angular-devkit/schematics" "11.2.3"
+    fs-extra "9.1.0"
+    jsonc-parser "3.0.0"
+    pluralize "8.0.0"
 
 "@nestjs/schematics@^7.3.0":
   version "7.3.1"
@@ -1328,22 +1359,22 @@
     jsonc-parser "3.0.0"
     pluralize "8.0.0"
 
-"@nestjs/testing@^7.6.15":
-  version "7.6.18"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/testing/-/testing-7.6.18.tgz#b4c137b5b6c2fb18c51602d33a083cd97c648283"
-  integrity sha1-tME3tbbC+xjFFgLTOgg82XxkgoM=
+"@nestjs/testing@7.6.15":
+  version "7.6.15"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/testing/-/testing-7.6.15.tgz#eed34846a8b2b5ddb0ff6bd74cdcb4344c364c40"
+  integrity sha1-7tNIRqiytd2w/2vXTNy0NEw2TEA=
   dependencies:
     optional "0.1.4"
-    tslib "2.2.0"
+    tslib "2.1.0"
 
-"@nestjs/throttler@^1.2.0":
+"@nestjs/throttler@1.2.0":
   version "1.2.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/throttler/-/throttler-1.2.0.tgz#d7edb8576c68bcc6ad8ce00561f251ad16217e2a"
   integrity sha1-1+24V2xovMatjOAFYfJRrRYhfio=
   dependencies:
     md5 "^2.2.1"
 
-"@nestjs/typeorm@^7.1.5":
+"@nestjs/typeorm@7.1.5":
   version "7.1.5"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@nestjs/typeorm/-/typeorm-7.1.5.tgz#50e3bf85ff8cf78d47d8dd19210c5f02b488f5e3"
   integrity sha1-UOO/hf+M941H2N0ZIQxfArSI9eM=
@@ -1523,7 +1554,7 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/bcryptjs@^2.4.2":
+"@types/bcryptjs@2.4.2":
   version "2.4.2"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/bcryptjs/-/bcryptjs-2.4.2.tgz#e3530eac9dd136bfdfb0e43df2c4c5ce1f77dfae"
   integrity sha1-41MOrJ3RNr/fsOQ98sTFzh93364=
@@ -1536,7 +1567,7 @@
     "@types/connect" "*"
     "@types/node" "*"
 
-"@types/compression@^1.7.1":
+"@types/compression@1.7.1":
   version "1.7.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/compression/-/compression-1.7.1.tgz#d935a1cd6f5cd9a4dc8b0d8aadf2ee91a2975acc"
   integrity sha1-2TWhzW9c2aTciw2KrfLukaKXWsw=
@@ -1619,7 +1650,7 @@
     "@types/qs" "*"
     "@types/range-parser" "*"
 
-"@types/express@*", "@types/express@^4.17.11":
+"@types/express@*":
   version "4.17.12"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/express/-/express-4.17.12.tgz#4bc1bf3cd0cfe6d3f6f2853648b40db7d54de350"
   integrity sha1-S8G/PNDP5tP28oU2SLQNt9VN41A=
@@ -1661,7 +1692,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/graphql@^14.5.0":
+"@types/graphql@14.5.0":
   version "14.5.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/graphql/-/graphql-14.5.0.tgz#a545fb3bc8013a3547cf2f07f5e13a33642b75d6"
   integrity sha1-pUX7O8gBOjVHzy8H9eE6M2QrddY=
@@ -1697,18 +1728,23 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^26.0.22":
-  version "26.0.23"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/jest/-/jest-26.0.23.tgz#a1b7eab3c503b80451d019efb588ec63522ee4e7"
-  integrity sha1-obfqs8UDuARR0BnvtYjsY1Iu5Oc=
+"@types/jest@26.0.22":
+  version "26.0.22"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/jest/-/jest-26.0.22.tgz#8308a1debdf1b807aa47be2838acdcd91e88fbe6"
+  integrity sha1-gwih3r3xuAeqR74oOKzc2R6I++Y=
   dependencies:
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
-"@types/json-schema@*", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6", "@types/json-schema@^7.0.7":
+"@types/json-schema@*", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.7"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
   integrity sha1-mKmTUWyFnrDVxMjwmDF6nqaNua0=
+
+"@types/json-schema@^7.0.3":
+  version "7.0.8"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/json-schema/-/json-schema-7.0.8.tgz#edf1bf1dbf4e04413ca8e5b17b3b7d7d54b59818"
+  integrity sha1-7fG/Hb9OBEE8qOWxezt9fVS1mBg=
 
 "@types/json5@^0.0.29":
   version "0.0.29"
@@ -1755,7 +1791,7 @@
     "@types/koa-compose" "*"
     "@types/node" "*"
 
-"@types/lodash@^4.14.170":
+"@types/lodash@4.14.170":
   version "4.14.170"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/lodash/-/lodash-4.14.170.tgz#0d67711d4bf7f4ca5147e9091b847479b87925d6"
   integrity sha1-DWdxHUv39MpRR+kJG4R0ebh5JdY=
@@ -1788,12 +1824,17 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/node/-/node-15.12.4.tgz#e1cf817d70a1e118e81922c4ff6683ce9d422e26"
   integrity sha1-4c+BfXCh4RjoGSLE/2aDzp1CLiY=
 
+"@types/node@14.14.36":
+  version "14.14.36"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/node/-/node-14.14.36.tgz#5637905dbb15c30a33a3c65b9ef7c20e3c85ebad"
+  integrity sha1-VjeQXbsVwwozo8ZbnvfCDjyF660=
+
 "@types/node@^10.1.0":
   version "10.17.60"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/node/-/node-10.17.60.tgz#35f3d6213daed95da7f0f73e75bcc6980e90597b"
   integrity sha1-NfPWIT2u2V2n8Pc+dbzGmA6QWXs=
 
-"@types/node@^14.11.2", "@types/node@^14.14.36":
+"@types/node@^14.11.2":
   version "14.17.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/node/-/node-14.17.3.tgz#6d327abaa4be34a74e421ed6409a0ae2f47f4c3d"
   integrity sha1-bTJ6uqS+NKdOQh7WQJoK4vR/TD0=
@@ -1808,7 +1849,7 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
 
-"@types/passport-jwt@^3.0.5":
+"@types/passport-jwt@3.0.5":
   version "3.0.5"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/passport-jwt/-/passport-jwt-3.0.5.tgz#bb0b412130f2739bc223180634295d8d6f767df4"
   integrity sha1-uwtBITDyc5vCIxgGNCldjW92ffQ=
@@ -1817,7 +1858,7 @@
     "@types/jsonwebtoken" "*"
     "@types/passport-strategy" "*"
 
-"@types/passport-local@^1.0.33":
+"@types/passport-local@1.0.33":
   version "1.0.33"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/passport-local/-/passport-local-1.0.33.tgz#d245b60c5b801cb3aeca1ffab557d5fe1534260d"
   integrity sha1-0kW2DFuAHLOuyh/6tVfV/hU0Jg0=
@@ -1882,10 +1923,10 @@
     "@types/cookiejar" "*"
     "@types/node" "*"
 
-"@types/supertest@^2.0.10":
-  version "2.0.11"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/supertest/-/supertest-2.0.11.tgz#2e70f69f220bc77b4f660d72c2e1a4231f44a77d"
-  integrity sha1-LnD2nyILx3tPZg1ywuGkIx9Ep30=
+"@types/supertest@2.0.10":
+  version "2.0.10"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/supertest/-/supertest-2.0.10.tgz#630d79b4d82c73e043e43ff777a9ca98d457cab7"
+  integrity sha1-Yw15tNgsc+BD5D/3d6nKmNRXyrc=
   dependencies:
     "@types/superagent" "*"
 
@@ -1894,7 +1935,7 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/validator/-/validator-13.1.4.tgz#d2e3c27523ce1b5d9dc13d16cbce65dc4db2adbe"
   integrity sha1-0uPCdSPOG12dwT0Wy85l3E2yrb4=
 
-"@types/webpack-env@^1.16.0":
+"@types/webpack-env@1.16.0":
   version "1.16.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/webpack-env/-/webpack-env-1.16.0.tgz#8c0a9435dfa7b3b1be76562f3070efb3f92637b4"
   integrity sha1-jAqUNd+ns7G+dlYvMHDvs/kmN7Q=
@@ -1918,17 +1959,17 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/yargs-parser/-/yargs-parser-20.2.0.tgz#dd3e6699ba3237f0348cd085e4698780204842f9"
   integrity sha1-3T5mmboyN/A0jNCF5GmHgCBIQvk=
 
+"@types/yargs@17.0.0":
+  version "17.0.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/yargs/-/yargs-17.0.0.tgz#32f740934eedf0a5cd19470249f317755c91f1ae"
+  integrity sha1-MvdAk07t8KXNGUcCSfMXdVyR8a4=
+  dependencies:
+    "@types/yargs-parser" "*"
+
 "@types/yargs@^15.0.0":
   version "15.0.13"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/yargs/-/yargs-15.0.13.tgz#34f7fec8b389d7f3c1fd08026a5763e072d3c6dc"
   integrity sha1-NPf+yLOJ1/PB/QgCaldj4HLTxtw=
-  dependencies:
-    "@types/yargs-parser" "*"
-
-"@types/yargs@^17.0.0":
-  version "17.0.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/yargs/-/yargs-17.0.0.tgz#32f740934eedf0a5cd19470249f317755c91f1ae"
-  integrity sha1-MvdAk07t8KXNGUcCSfMXdVyR8a4=
   dependencies:
     "@types/yargs-parser" "*"
 
@@ -1937,74 +1978,74 @@
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@types/zen-observable/-/zen-observable-0.8.2.tgz#808c9fa7e4517274ed555fa158f2de4b4f468e71"
   integrity sha1-gIyfp+RRcnTtVV+hWPLeS09GjnE=
 
-"@typescript-eslint/eslint-plugin@^4.19.0":
-  version "4.27.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.27.0.tgz#0b7fc974e8bc9b2b5eb98ed51427b0be529b4ad0"
-  integrity sha1-C3/JdOi8myteuY7VFCewvlKbStA=
+"@typescript-eslint/eslint-plugin@4.19.0":
+  version "4.19.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.19.0.tgz#56f8da9ee118fe9763af34d6a526967234f6a7f0"
+  integrity sha1-VvjanuEY/pdjrzTWpSaWcjT2p/A=
   dependencies:
-    "@typescript-eslint/experimental-utils" "4.27.0"
-    "@typescript-eslint/scope-manager" "4.27.0"
-    debug "^4.3.1"
+    "@typescript-eslint/experimental-utils" "4.19.0"
+    "@typescript-eslint/scope-manager" "4.19.0"
+    debug "^4.1.1"
     functional-red-black-tree "^1.0.1"
-    lodash "^4.17.21"
-    regexpp "^3.1.0"
-    semver "^7.3.5"
-    tsutils "^3.21.0"
+    lodash "^4.17.15"
+    regexpp "^3.0.0"
+    semver "^7.3.2"
+    tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@4.27.0":
-  version "4.27.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/experimental-utils/-/experimental-utils-4.27.0.tgz#78192a616472d199f084eab8f10f962c0757cd1c"
-  integrity sha1-eBkqYWRy0ZnwhOq48Q+WLAdXzRw=
+"@typescript-eslint/experimental-utils@4.19.0":
+  version "4.19.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/experimental-utils/-/experimental-utils-4.19.0.tgz#9ca379919906dc72cb0fcd817d6cb5aa2d2054c6"
+  integrity sha1-nKN5kZkG3HLLD82BfWy1qi0gVMY=
   dependencies:
-    "@types/json-schema" "^7.0.7"
-    "@typescript-eslint/scope-manager" "4.27.0"
-    "@typescript-eslint/types" "4.27.0"
-    "@typescript-eslint/typescript-estree" "4.27.0"
-    eslint-scope "^5.1.1"
-    eslint-utils "^3.0.0"
+    "@types/json-schema" "^7.0.3"
+    "@typescript-eslint/scope-manager" "4.19.0"
+    "@typescript-eslint/types" "4.19.0"
+    "@typescript-eslint/typescript-estree" "4.19.0"
+    eslint-scope "^5.0.0"
+    eslint-utils "^2.0.0"
 
-"@typescript-eslint/parser@^4.19.0":
-  version "4.27.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/parser/-/parser-4.27.0.tgz#85447e573364bce4c46c7f64abaa4985aadf5a94"
-  integrity sha1-hUR+VzNkvOTEbH9kq6pJharfWpQ=
+"@typescript-eslint/parser@4.19.0":
+  version "4.19.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/parser/-/parser-4.19.0.tgz#4ae77513b39f164f1751f21f348d2e6cb2d11128"
+  integrity sha1-Sud1E7OfFk8XUfIfNI0ubLLRESg=
   dependencies:
-    "@typescript-eslint/scope-manager" "4.27.0"
-    "@typescript-eslint/types" "4.27.0"
-    "@typescript-eslint/typescript-estree" "4.27.0"
-    debug "^4.3.1"
+    "@typescript-eslint/scope-manager" "4.19.0"
+    "@typescript-eslint/types" "4.19.0"
+    "@typescript-eslint/typescript-estree" "4.19.0"
+    debug "^4.1.1"
 
-"@typescript-eslint/scope-manager@4.27.0":
-  version "4.27.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/scope-manager/-/scope-manager-4.27.0.tgz#b0b1de2b35aaf7f532e89c8e81d0fa298cae327d"
-  integrity sha1-sLHeKzWq9/Uy6JyOgdD6KYyuMn0=
+"@typescript-eslint/scope-manager@4.19.0":
+  version "4.19.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/scope-manager/-/scope-manager-4.19.0.tgz#5e0b49eca4df7684205d957c9856f4e720717a4f"
+  integrity sha1-XgtJ7KTfdoQgXZV8mFb05yBxek8=
   dependencies:
-    "@typescript-eslint/types" "4.27.0"
-    "@typescript-eslint/visitor-keys" "4.27.0"
+    "@typescript-eslint/types" "4.19.0"
+    "@typescript-eslint/visitor-keys" "4.19.0"
 
-"@typescript-eslint/types@4.27.0":
-  version "4.27.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/types/-/types-4.27.0.tgz#712b408519ed699baff69086bc59cd2fc13df8d8"
-  integrity sha1-cStAhRntaZuv9pCGvFnNL8E9+Ng=
+"@typescript-eslint/types@4.19.0":
+  version "4.19.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/types/-/types-4.19.0.tgz#5181d5d2afd02e5b8f149ebb37ffc8bd7b07a568"
+  integrity sha1-UYHV0q/QLluPFJ67N//IvXsHpWg=
 
-"@typescript-eslint/typescript-estree@4.27.0":
-  version "4.27.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/typescript-estree/-/typescript-estree-4.27.0.tgz#189a7b9f1d0717d5cccdcc17247692dedf7a09da"
-  integrity sha1-GJp7nx0HF9XMzcwXJHaS3t96Cdo=
+"@typescript-eslint/typescript-estree@4.19.0":
+  version "4.19.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/typescript-estree/-/typescript-estree-4.19.0.tgz#8a709ffa400284ab72df33376df085e2e2f61147"
+  integrity sha1-inCf+kAChKty3zM3bfCF4uL2EUc=
   dependencies:
-    "@typescript-eslint/types" "4.27.0"
-    "@typescript-eslint/visitor-keys" "4.27.0"
-    debug "^4.3.1"
-    globby "^11.0.3"
+    "@typescript-eslint/types" "4.19.0"
+    "@typescript-eslint/visitor-keys" "4.19.0"
+    debug "^4.1.1"
+    globby "^11.0.1"
     is-glob "^4.0.1"
-    semver "^7.3.5"
-    tsutils "^3.21.0"
+    semver "^7.3.2"
+    tsutils "^3.17.1"
 
-"@typescript-eslint/visitor-keys@4.27.0":
-  version "4.27.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/visitor-keys/-/visitor-keys-4.27.0.tgz#f56138b993ec822793e7ebcfac6ffdce0a60cb81"
-  integrity sha1-9WE4uZPsgieT5+vPrG/9zgpgy4E=
+"@typescript-eslint/visitor-keys@4.19.0":
+  version "4.19.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/@typescript-eslint/visitor-keys/-/visitor-keys-4.19.0.tgz#cbea35109cbd9b26e597644556be4546465d8f7f"
+  integrity sha1-y+o1EJy9mybll2RFVr5FRkZdj38=
   dependencies:
-    "@typescript-eslint/types" "4.27.0"
+    "@typescript-eslint/types" "4.19.0"
     eslint-visitor-keys "^2.0.0"
 
 "@ucast/core@^1.0.0", "@ucast/core@^1.4.1", "@ucast/core@^1.6.1":
@@ -2451,7 +2492,7 @@ apollo-server-errors@^2.5.0, "apollo-server-errors@^2.5.0 || ^3.0.0-preview.2":
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/apollo-server-errors/-/apollo-server-errors-2.5.0.tgz#5d1024117c7496a2979e3e34908b5685fe112b68"
   integrity sha1-XRAkEXx0lqKXnj40kItWhf4RK2g=
 
-apollo-server-express@^2.25.1:
+apollo-server-express@2.25.1:
   version "2.25.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/apollo-server-express/-/apollo-server-express-2.25.1.tgz#d02914cb348819b08c7a476cd012b6731c3fb5d2"
   integrity sha1-0CkUyzSIGbCMekds0BK2cxw/tdI=
@@ -2769,7 +2810,7 @@ base@^0.11.1:
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
 
-bcryptjs@^2.4.3:
+bcryptjs@2.4.3:
   version "2.4.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
   integrity sha1-mrVie5PmBiH/fNrF2pczAn3x0Ms=
@@ -3108,7 +3149,7 @@ cjs-module-lexer@^0.6.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/cjs-module-lexer/-/cjs-module-lexer-0.6.0.tgz#4186fcca0eae175970aee870b9fe2d6cf8d5655f"
   integrity sha1-QYb8yg6uF1lwruhwuf4tbPjVZV8=
 
-class-transformer@^0.4.0:
+class-transformer@0.4.0:
   version "0.4.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/class-transformer/-/class-transformer-0.4.0.tgz#b52144117b423c516afb44cc1c76dbad31c2165b"
   integrity sha1-tSFEEXtCPFFq+0TMHHbbrTHCFls=
@@ -3123,7 +3164,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-class-validator@^0.13.1:
+class-validator@0.13.1:
   version "0.13.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/class-validator/-/class-validator-0.13.1.tgz#381b2001ee6b9e05afd133671fbdf760da7dec67"
   integrity sha1-OBsgAe5rngWv0TNnH733YNp97Gc=
@@ -3309,7 +3350,7 @@ compressible@~2.0.16:
   dependencies:
     mime-db ">= 1.43.0 < 2"
 
-compression@^1.7.4:
+compression@1.7.4:
   version "1.7.4"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/compression/-/compression-1.7.4.tgz#95523eff170ca57c29a0ca41e6fe131f41e5bb8f"
   integrity sha1-lVI+/xcMpXwpoMpB5v4TH0Hlu48=
@@ -3492,7 +3533,7 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-dataloader@2.0.0, dataloader@^2.0.0:
+dataloader@2.0.0:
   version "2.0.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/dataloader/-/dataloader-2.0.0.tgz#41eaf123db115987e21ca93c005cd7753c55fe6f"
   integrity sha1-QerxI9sRWYfiHKk8AFzXdTxV/m8=
@@ -3848,11 +3889,6 @@ escape-string-regexp@^2.0.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/escape-string-regexp/-/escape-string-regexp-2.0.0.tgz#a30304e99daa32e23b2fd20f51babd07cffca344"
   integrity sha1-owME6Z2qMuI7L9IPUbq9B8/8o0Q=
 
-escape-string-regexp@^4.0.0:
-  version "4.0.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz#14ba83a5d373e3d311e5afca29cf5bfad965bf34"
-  integrity sha1-FLqDpdNz49MR5a/KKc9b+tllvzQ=
-
 escodegen@^2.0.0:
   version "2.0.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/escodegen/-/escodegen-2.0.0.tgz#5e32b12833e8aa8fa35e1bf0befa89380484c7dd"
@@ -3865,19 +3901,19 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^8.1.0:
-  version "8.3.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
-  integrity sha1-90cbILb+ipqSVMxoRFQgKIai3Xo=
+eslint-config-prettier@8.1.0:
+  version "8.1.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-config-prettier/-/eslint-config-prettier-8.1.0.tgz#4ef1eaf97afe5176e6a75ddfb57c335121abc5a6"
+  integrity sha1-TvHq+Xr+UXbmp13ftXwzUSGrxaY=
 
-eslint-plugin-prettier@^3.3.1:
-  version "3.4.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-plugin-prettier/-/eslint-plugin-prettier-3.4.0.tgz#cdbad3bf1dbd2b177e9825737fe63b476a08f0c7"
-  integrity sha1-zbrTvx29Kxd+mCVzf+Y7R2oI8Mc=
+eslint-plugin-prettier@3.3.1:
+  version "3.3.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-plugin-prettier/-/eslint-plugin-prettier-3.3.1.tgz#7079cfa2497078905011e6f82e8dd8453d1371b7"
+  integrity sha1-cHnPoklweJBQEeb4Lo3YRT0Tcbc=
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-scope@^5.1.1:
+eslint-scope@^5.0.0, eslint-scope@^5.1.1:
   version "5.1.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-scope/-/eslint-scope-5.1.1.tgz#e786e59a66cb92b3f6c1fb0d508aab174848f48c"
   integrity sha1-54blmmbLkrP2wfsNUIqrF0hI9Iw=
@@ -3885,19 +3921,12 @@ eslint-scope@^5.1.1:
     esrecurse "^4.3.0"
     estraverse "^4.1.1"
 
-eslint-utils@^2.1.0:
+eslint-utils@^2.0.0, eslint-utils@^2.1.0:
   version "2.1.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-utils/-/eslint-utils-2.1.0.tgz#d2de5e03424e707dc10c74068ddedae708741b27"
   integrity sha1-0t5eA0JOcH3BDHQGjd7a5wh0Gyc=
   dependencies:
     eslint-visitor-keys "^1.1.0"
-
-eslint-utils@^3.0.0:
-  version "3.0.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-utils/-/eslint-utils-3.0.0.tgz#8aebaface7345bb33559db0a1f13a1d2d48c3672"
-  integrity sha1-iuuvrOc0W7M1WdsKHxOh0tSMNnI=
-  dependencies:
-    eslint-visitor-keys "^2.0.0"
 
 eslint-visitor-keys@^1.1.0, eslint-visitor-keys@^1.3.0:
   version "1.3.0"
@@ -3909,30 +3938,28 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint-visitor-keys/-/eslint-visitor-keys-2.1.0.tgz#f65328259305927392c938ed44eb0a5c9b2bd303"
   integrity sha1-9lMoJZMFknOSyTjtROsKXJsr0wM=
 
-eslint@^7.22.0:
-  version "7.29.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint/-/eslint-7.29.0.tgz#ee2a7648f2e729485e4d0bd6383ec1deabc8b3c0"
-  integrity sha1-7ip2SPLnKUheTQvWOD7B3qvIs8A=
+eslint@7.22.0:
+  version "7.22.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/eslint/-/eslint-7.22.0.tgz#07ecc61052fec63661a2cab6bd507127c07adc6f"
+  integrity sha1-B+zGEFL+xjZhosq2vVBxJ8B63G8=
   dependencies:
     "@babel/code-frame" "7.12.11"
-    "@eslint/eslintrc" "^0.4.2"
+    "@eslint/eslintrc" "^0.4.0"
     ajv "^6.10.0"
     chalk "^4.0.0"
     cross-spawn "^7.0.2"
     debug "^4.0.1"
     doctrine "^3.0.0"
     enquirer "^2.3.5"
-    escape-string-regexp "^4.0.0"
     eslint-scope "^5.1.1"
     eslint-utils "^2.1.0"
     eslint-visitor-keys "^2.0.0"
     espree "^7.3.1"
     esquery "^1.4.0"
     esutils "^2.0.2"
-    fast-deep-equal "^3.1.3"
     file-entry-cache "^6.0.1"
     functional-red-black-tree "^1.0.1"
-    glob-parent "^5.1.2"
+    glob-parent "^5.0.0"
     globals "^13.6.0"
     ignore "^4.0.6"
     import-fresh "^3.0.0"
@@ -3941,7 +3968,7 @@ eslint@^7.22.0:
     js-yaml "^3.13.1"
     json-stable-stringify-without-jsonify "^1.0.1"
     levn "^0.4.1"
-    lodash.merge "^4.6.2"
+    lodash "^4.17.21"
     minimatch "^3.0.4"
     natural-compare "^1.4.0"
     optionator "^0.9.1"
@@ -3950,7 +3977,7 @@ eslint@^7.22.0:
     semver "^7.2.1"
     strip-ansi "^6.0.0"
     strip-json-comments "^3.1.0"
-    table "^6.0.9"
+    table "^6.0.4"
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
@@ -4159,7 +4186,7 @@ extract-files@9.0.0, extract-files@^9.0.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/extract-files/-/extract-files-9.0.0.tgz#8a7744f2437f81f5ed3250ed9f1550de902fe54a"
   integrity sha1-indE8kN/gfXtMlDtnxVQ3pAv5Uo=
 
-fast-deep-equal@^3.1.1, fast-deep-equal@^3.1.3:
+fast-deep-equal@^3.1.1:
   version "3.1.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
   integrity sha1-On1WtVnWy8PrUSMlJE5hmmXGxSU=
@@ -4490,7 +4517,7 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
-glob-parent@^5.1.0, glob-parent@^5.1.2, glob-parent@~5.1.0, glob-parent@~5.1.2:
+glob-parent@^5.0.0, glob-parent@^5.1.0, glob-parent@~5.1.0, glob-parent@~5.1.2:
   version "5.1.2"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha1-hpgyxYA0/mikCTwX3BXoNA2EAcQ=
@@ -4538,7 +4565,7 @@ globby@11.0.3:
     merge2 "^1.3.0"
     slash "^3.0.0"
 
-globby@^11.0.3:
+globby@^11.0.1:
   version "11.0.4"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/globby/-/globby-11.0.4.tgz#2cbaff77c2f2a62e71e9b2813a67b97a3a3001a5"
   integrity sha1-LLr/d8Lypi5x6bKBOme5ejowAaU=
@@ -4585,18 +4612,7 @@ graphql-tag@^2.11.0, graphql-tag@^2.12.0:
   dependencies:
     tslib "^2.1.0"
 
-graphql-tools@^4.0.8:
-  version "4.0.8"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/graphql-tools/-/graphql-tools-4.0.8.tgz#e7fb9f0d43408fb0878ba66b522ce871bafe9d30"
-  integrity sha1-5/ufDUNAj7CHi6ZrUizocbr+nTA=
-  dependencies:
-    apollo-link "^1.2.14"
-    apollo-utilities "^1.0.1"
-    deprecated-decorator "^0.1.6"
-    iterall "^1.1.3"
-    uuid "^3.1.0"
-
-graphql-tools@^7.0.5:
+graphql-tools@7.0.5:
   version "7.0.5"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/graphql-tools/-/graphql-tools-7.0.5.tgz#63e322d4fa64ef9a7331be837a4f39b374d52d66"
   integrity sha1-Y+Mi1Ppk75pzMb6Dek85s3TVLWY=
@@ -4629,12 +4645,23 @@ graphql-tools@^7.0.5:
   optionalDependencies:
     "@apollo/client" "~3.2.5 || ~3.3.0"
 
+graphql-tools@^4.0.8:
+  version "4.0.8"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/graphql-tools/-/graphql-tools-4.0.8.tgz#e7fb9f0d43408fb0878ba66b522ce871bafe9d30"
+  integrity sha1-5/ufDUNAj7CHi6ZrUizocbr+nTA=
+  dependencies:
+    apollo-link "^1.2.14"
+    apollo-utilities "^1.0.1"
+    deprecated-decorator "^0.1.6"
+    iterall "^1.1.3"
+    uuid "^3.1.0"
+
 graphql-ws@^4.4.1:
   version "4.9.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/graphql-ws/-/graphql-ws-4.9.0.tgz#5cfd8bb490b35e86583d8322f5d5d099c26e365c"
   integrity sha1-XP2LtJCzXoZYPYMi9dXQmcJuNlw=
 
-graphql@*, graphql@^15.5.1:
+graphql@*, graphql@15.5.1:
   version "15.5.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/graphql/-/graphql-15.5.1.tgz#f2f84415d8985e7b84731e7f3536f8bb9d383aad"
   integrity sha1-8vhEFdiYXnuEcx5/NTb4u504Oq0=
@@ -4709,7 +4736,7 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-helmet@^4.6.0:
+helmet@4.6.0:
   version "4.6.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/helmet/-/helmet-4.6.0.tgz#579971196ba93c5978eb019e4e8ec0e50076b4df"
   integrity sha1-V5lxGWupPFl46wGeTo7A5QB2tN8=
@@ -5682,7 +5709,7 @@ jest-worker@^27.0.2:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^26.6.3:
+jest@26.6.3:
   version "26.6.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/jest/-/jest-26.6.3.tgz#40e8fdbe48f00dfa1f0ce8121ca74b88ac9148ef"
   integrity sha1-QOj9vkjwDfofDOgSHKdLiKyRSO8=
@@ -5976,11 +6003,6 @@ lodash.isstring@^4.0.1:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
   integrity sha1-1SfftUVuynzJu5XV2ur4i6VKVFE=
 
-lodash.merge@^4.6.2:
-  version "4.6.2"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
-  integrity sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=
-
 lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
@@ -6011,7 +6033,7 @@ lodash.xorby@^4.7.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash.xorby/-/lodash.xorby-4.7.0.tgz#9c19a6f9f063a6eb53dd03c1b6871799801463d7"
   integrity sha1-nBmm+fBjputT3QPBtocXmYAUY9c=
 
-lodash@4.17.21, lodash@4.x, lodash@^4.17.19, lodash@^4.17.21, lodash@^4.7.0:
+lodash@4.17.21, lodash@4.x, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.21, lodash@^4.7.0:
   version "4.17.21"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -6409,7 +6431,7 @@ neo-async@^2.6.2:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha1-tKr7k+OustgXTKU88WOrfXMIMF8=
 
-nestjs-command@^2.0.0:
+nestjs-command@2.0.0:
   version "2.0.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/nestjs-command/-/nestjs-command-2.0.0.tgz#b0a04904e8962c6dfa2e058a5f72fad52e45c03f"
   integrity sha1-sKBJBOiWLG36LgWKX3L61S5FwD8=
@@ -6812,7 +6834,7 @@ pascalcase@^0.1.1:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
-passport-jwt@^4.0.0:
+passport-jwt@4.0.0:
   version "4.0.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/passport-jwt/-/passport-jwt-4.0.0.tgz#7f0be7ba942e28b9f5d22c2ebbb8ce96ef7cf065"
   integrity sha1-fwvnupQuKLn10iwuu7jOlu988GU=
@@ -6820,7 +6842,7 @@ passport-jwt@^4.0.0:
     jsonwebtoken "^8.2.0"
     passport-strategy "^1.0.0"
 
-passport-local@^1.0.0:
+passport-local@1.0.0:
   version "1.0.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
   integrity sha1-H+YyaMkudWBmJkN+O5BmYsFbpu4=
@@ -6832,7 +6854,7 @@ passport-strategy@1.x.x, passport-strategy@^1.0.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/passport-strategy/-/passport-strategy-1.0.0.tgz#b5539aa8fc225a3d1ad179476ddf236b440f52e4"
   integrity sha1-tVOaqPwiWj0a0XlHbd8ja0QPUuQ=
 
-passport@^0.4.1:
+passport@0.4.1:
   version "0.4.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/passport/-/passport-0.4.1.tgz#941446a21cb92fc688d97a0861c38ce9f738f270"
   integrity sha1-lBRGohy5L8aI2XoIYcOM6fc48nA=
@@ -6921,7 +6943,7 @@ pg-types@^2.1.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@^8.6.0:
+pg@8.6.0:
   version "8.6.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/pg/-/pg-8.6.0.tgz#e222296b0b079b280cce106ea991703335487db2"
   integrity sha1-4iIpawsHmygMzhBuqZFwMzVIfbI=
@@ -7009,10 +7031,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.2.1:
-  version "2.3.1"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
-  integrity sha1-dpA8P4xESbyaxZes76JNxa1MvqY=
+prettier@2.2.1:
+  version "2.2.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha1-eVoaeN1S8HPaDNQrIfnJE4GSP/U=
 
 pretty-format@^26.0.0, pretty-format@^26.6.2:
   version "26.6.2"
@@ -7223,7 +7245,7 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-reflect-metadata@^0.1.13:
+reflect-metadata@0.1.13, reflect-metadata@^0.1.13:
   version "0.1.13"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
   integrity sha1-Z648pXyXKiqhZCsQ/jY/4y1J3Ag=
@@ -7249,7 +7271,7 @@ regexp.prototype.flags@^1.3.0:
     call-bind "^1.0.2"
     define-properties "^1.1.3"
 
-regexpp@^3.1.0:
+regexpp@^3.0.0, regexpp@^3.1.0:
   version "3.2.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/regexpp/-/regexpp-3.2.0.tgz#0425a2768d8f23bad70ca4b90461fa2f1213e1b2"
   integrity sha1-BCWido2PI7rXDKS5BGH6LxIT4bI=
@@ -7398,7 +7420,14 @@ rxjs@6.6.3:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@^6.6.0, rxjs@^6.6.6:
+rxjs@6.6.6:
+  version "6.6.6"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/rxjs/-/rxjs-6.6.6.tgz#14d8417aa5a07c5e633995b525e1e3c0dec03b70"
+  integrity sha1-FNhBeqWgfF5jOZW1JeHjwN7AO3A=
+  dependencies:
+    tslib "^1.9.0"
+
+rxjs@^6.6.0:
   version "6.6.7"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/rxjs/-/rxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
   integrity sha1-kKwBisq/SRv2UEQjXVhjxNq4BMk=
@@ -7477,7 +7506,7 @@ schema-utils@^3.0.0:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha1-qVT5Ma66UI0we78Gnv8MAclhFvc=
 
-semver@7.x, semver@^7.2.1, semver@^7.3.2, semver@^7.3.4, semver@^7.3.5:
+semver@7.x, semver@^7.2.1, semver@^7.3.2, semver@^7.3.4:
   version "7.3.5"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/semver/-/semver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
   integrity sha1-C2Ich5NI2JmOSw5L6Us/EuYBjvc=
@@ -7963,7 +7992,7 @@ superagent@^6.1.0:
     readable-stream "^3.6.0"
     semver "^7.3.2"
 
-supertest@^6.1.3:
+supertest@6.1.3:
   version "6.1.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/supertest/-/supertest-6.1.3.tgz#3f49ea964514c206c334073e8dc4e70519c7403f"
   integrity sha1-P0nqlkUUwgbDNAc+jcTnBRnHQD8=
@@ -8033,7 +8062,7 @@ sync-fetch@0.3.0:
     buffer "^5.7.0"
     node-fetch "^2.6.1"
 
-table@^6.0.9:
+table@^6.0.4:
   version "6.7.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/table/-/table-6.7.1.tgz#ee05592b7143831a8c94f3cee6aae4c1ccef33e2"
   integrity sha1-7gVZK3FDgxqMlPPO5qrkwczvM+I=
@@ -8233,10 +8262,10 @@ ts-invariant@^0.7.0:
   dependencies:
     tslib "^2.1.0"
 
-ts-jest@^26.5.4:
-  version "26.5.6"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/ts-jest/-/ts-jest-26.5.6.tgz#c32e0746425274e1dfe333f43cd3c800e014ec35"
-  integrity sha1-wy4HRkJSdOHf4zP0PNPIAOAU7DU=
+ts-jest@26.5.4:
+  version "26.5.4"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/ts-jest/-/ts-jest-26.5.4.tgz#207f4c114812a9c6d5746dd4d1cdf899eafc9686"
+  integrity sha1-IH9MEUgSqcbVdG3U0c34mer8loY=
   dependencies:
     bs-logger "0.x"
     buffer-from "1.x"
@@ -8249,10 +8278,10 @@ ts-jest@^26.5.4:
     semver "7.x"
     yargs-parser "20.x"
 
-ts-loader@^8.0.18:
-  version "8.3.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/ts-loader/-/ts-loader-8.3.0.tgz#83360496d6f8004fab35825279132c93412edf33"
-  integrity sha1-gzYEltb4AE+rNYJSeRMsk0Eu3zM=
+ts-loader@8.0.18:
+  version "8.0.18"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/ts-loader/-/ts-loader-8.0.18.tgz#b2385cbe81c34ad9f997915129cdde3ad92a61ea"
+  integrity sha1-sjhcvoHDStn5l5FRKc3eOtkqYeo=
   dependencies:
     chalk "^4.1.0"
     enhanced-resolve "^4.0.0"
@@ -8268,7 +8297,7 @@ ts-morph@^11.0.0:
     "@ts-morph/common" "~0.10.0"
     code-block-writer "^10.1.1"
 
-ts-node@^9.1.1:
+ts-node@9.1.1:
   version "9.1.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/ts-node/-/ts-node-9.1.1.tgz#51a9a450a3e959401bda5f004a72d54b936d376d"
   integrity sha1-UamkUKPpWUAb2l8ASnLVS5NtN20=
@@ -8299,10 +8328,10 @@ tsconfig-paths@3.9.0, tsconfig-paths@^3.9.0:
     minimist "^1.2.0"
     strip-bom "^3.0.0"
 
-tslib@2.2.0, tslib@~2.2.0:
-  version "2.2.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
-  integrity sha1-+yxHWXfjXiQTEe3iaTzuHsZpj1w=
+tslib@2.1.0, tslib@~2.1.0:
+  version "2.1.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
 
 tslib@2.3.0, tslib@^2.0.1, tslib@^2.0.3, tslib@^2.1.0:
   version "2.3.0"
@@ -8319,12 +8348,12 @@ tslib@~2.0.1:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
   integrity sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=
 
-tslib@~2.1.0:
-  version "2.1.0"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
-  integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
+tslib@~2.2.0:
+  version "2.2.0"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
+  integrity sha1-+yxHWXfjXiQTEe3iaTzuHsZpj1w=
 
-tsutils@^3.21.0:
+tsutils@^3.17.1:
   version "3.21.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/tsutils/-/tsutils-3.21.0.tgz#b48717d394cea6c1e096983eed58e9d61715b623"
   integrity sha1-tIcX05TOpsHglpg+7Vjp1hcVtiM=
@@ -8370,7 +8399,7 @@ type-fest@^0.8.1:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha1-CeJJ696FHTseSNJ8EFREZn8XuD0=
 
-type-graphql@^1.1.1:
+type-graphql@1.1.1:
   version "1.1.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/type-graphql/-/type-graphql-1.1.1.tgz#dc0710d961713b92d3fee927981fa43bf71667a4"
   integrity sha1-3AcQ2WFxO5LT/uknmB+kO/cWZ6Q=
@@ -8404,14 +8433,14 @@ typedarray@^0.0.6:
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typegraphql-nestjs@^0.3.1:
+typegraphql-nestjs@0.3.1:
   version "0.3.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/typegraphql-nestjs/-/typegraphql-nestjs-0.3.1.tgz#9cf23cad4e49abef0b165fd8ea285c33855fe397"
   integrity sha1-nPI8rU5Jq+8LFl/Y6ihcM4Vf45c=
   dependencies:
     tslib "^2.1.0"
 
-typeorm@^0.2.34:
+typeorm@0.2.34:
   version "0.2.34"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/typeorm/-/typeorm-0.2.34.tgz#637b3cec2de54ee7f423012b813a2022c0aacc8b"
   integrity sha1-Y3s87C3lTuf0IwErgTogIsCqzIs=
@@ -8438,11 +8467,6 @@ typescript@4.2.3:
   version "4.2.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
   integrity sha1-OQYtgBmRLUNyYpjwlJPVmASMHOM=
-
-typescript@^4.2.3:
-  version "4.3.4"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
-  integrity sha1-P4W5hpRbzzEHHezdls+L+mX53Lw=
 
 ua-parser-js@^0.7.18:
   version "0.7.28"
@@ -8777,7 +8801,7 @@ windows-release@^4.0.0:
   dependencies:
     execa "^4.0.2"
 
-winston-daily-rotate-file@^4.5.5:
+winston-daily-rotate-file@4.5.5:
   version "4.5.5"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/winston-daily-rotate-file/-/winston-daily-rotate-file-4.5.5.tgz#cfa3a89f4eb0e4126917592b375759b772bcd972"
   integrity sha1-z6Oon06w5BJpF1krN1dZt3K82XI=
@@ -8795,7 +8819,7 @@ winston-transport@^4.4.0:
     readable-stream "^2.3.7"
     triple-beam "^1.2.0"
 
-winston@^3.3.3:
+winston@3.3.3:
   version "3.3.3"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/winston/-/winston-3.3.3.tgz#ae6172042cafb29786afa3d09c8ff833ab7c9170"
   integrity sha1-rmFyBCyvspeGr6PQnI/4M6t8kXA=
@@ -8936,6 +8960,19 @@ yargs-parser@^18.1.2:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
+yargs@17.0.1:
+  version "17.0.1"
+  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/yargs/-/yargs-17.0.1.tgz#6a1ced4ed5ee0b388010ba9fd67af83b9362e0bb"
+  integrity sha1-ahztTtXuCziAELqf1nr4O5Ni4Ls=
+  dependencies:
+    cliui "^7.0.2"
+    escalade "^3.1.1"
+    get-caller-file "^2.0.5"
+    require-directory "^2.1.1"
+    string-width "^4.2.0"
+    y18n "^5.0.5"
+    yargs-parser "^20.2.2"
+
 yargs@^15.3.1, yargs@^15.4.1:
   version "15.4.1"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
@@ -8957,19 +8994,6 @@ yargs@^16.0.0, yargs@^16.2.0:
   version "16.2.0"
   resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha1-HIK/D2tqZur85+8w43b0mhJHf2Y=
-  dependencies:
-    cliui "^7.0.2"
-    escalade "^3.1.1"
-    get-caller-file "^2.0.5"
-    require-directory "^2.1.1"
-    string-width "^4.2.0"
-    y18n "^5.0.5"
-    yargs-parser "^20.2.2"
-
-yargs@^17.0.1:
-  version "17.0.1"
-  resolved "https://intechww.jfrog.io/intechww/api/npm/npm-virtual/yargs/-/yargs-17.0.1.tgz#6a1ced4ed5ee0b388010ba9fd67af83b9362e0bb"
-  integrity sha1-ahztTtXuCziAELqf1nr4O5Ni4Ls=
   dependencies:
     cliui "^7.0.2"
     escalade "^3.1.1"
