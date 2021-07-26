@@ -1,5 +1,5 @@
 image:
-  name: node:12.18.3-stretch
+  name: node:10.15.3
   username: $JFROG_USERNAME
   password: $JFROG_PASSWORD
   email: $JFROG_EMAIL
@@ -12,7 +12,7 @@ pipelines:
           - docker
         script:
           - docker login --username $JFROG_USERNAME --password $JFROG_PASSWORD intechww-docker-local.jfrog.io
-          - docker build -f dockerfile .
+          - docker-compose -f docker-compose.prod.yml build
           - npm run test
   branches:
     master:
@@ -25,8 +25,8 @@ pipelines:
             - docker
           script:
             - docker login --username $JFROG_USERNAME --password $JFROG_PASSWORD intechww-docker-local.jfrog.io
-            - docker build -f dockerfile .
-            - go test -timeout 60s -coverprofile=coverage.out.tmp -covermode=atomic ./...
+            - docker-compose -f docker-compose.prod.yml build
+            - npm run test
       - step:
           name: Release Bugfix Version Docker image
           trigger: manual
@@ -36,7 +36,7 @@ pipelines:
             - docker
           script:
             - docker login --username $JFROG_USERNAME --password $JFROG_PASSWORD intechww-docker-local.jfrog.io
-            - docker build -t nestjs-boilerplate:0.0.1 -f dockerfile .
+            - docker-compose -f docker-compose.prod.yml build
             - docker push nestjs-boilerplate:0.0.1
 options:
   docker: true
