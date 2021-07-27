@@ -15,6 +15,7 @@ services:
       - n1  
 
    app:
+    image: "${IMAGE_NAME:-scratch}:${IMAGE_TAG:-latest}" 
     build:
       context: .
       target: prod
