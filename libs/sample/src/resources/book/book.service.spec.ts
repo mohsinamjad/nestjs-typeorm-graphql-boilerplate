@@ -4,10 +4,20 @@ import { BookService } from './book.service';
 
 describe('BookService', () => {
   let service: BookService;
+    const mockConnection = () => ({
+      // creating mock function
+      transaction: jest.fn(),
+    });
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [BookService, Connection],
+      providers: [
+        BookService,
+        {
+          provide: Connection,
+          useFactory: mockConnection,
+        },
+      ],
     }).compile();
 
     service = module.get<BookService>(BookService);
