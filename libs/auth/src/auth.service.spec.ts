@@ -10,10 +10,6 @@ import { UserService } from './resources/user/user.service';
 
 describe('AuthService', () => {
   let service: AuthService;
-   const mockConnection = () => ({
-     // creating mock function
-     transaction: jest.fn(),
-   });
 
   beforeEach(async () => {
     const mockedConnection = jest.fn().mockImplementation(() => Connection);
