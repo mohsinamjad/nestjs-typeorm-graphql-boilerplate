@@ -1,0 +1,45 @@
+image:
+  name: node:10.15.3
+  username: $JFROG_USERNAME
+  password: $JFROG_PASSWORD
+  email: $JFROG_EMAIL
+pipelines:
+  default:
+    - step:
+        name: Run Tests and Build Docker Image
+        services:
+          - docker
+        caches:
+          - docker
+        script:
+          - npm install
+          - npm run test
+          - docker login --username $JFROG_USERNAME --password $JFROG_PASSWORD intechww-docker-local.jfrog.io
+          - docker build --target prod --build-arg APP_NAME=scratch -t intechww-docker-local.jfrog.io/nestjs-boilerplate:0.0.1 .
+  branches:
+    master:
+      - step:
+          name: Run the tests and build the Docker image
+          deployment: test
+          services:
+            - docker
+          caches:
+            - docker
+          script:
+            - npm install
+            - npm run test
+            - docker login --username $JFROG_USERNAME --password $JFROG_PASSWORD intechww-docker-local.jfrog.io
+            - docker build --target prod --build-arg APP_NAME=scratch -t intechww-docker-local.jfrog.io/nestjs-boilerplate:0.0.1 .
+      - step:
+          name: Release Bugfix Version Docker image
+          trigger: manual
+          services:
+            - docker
+          caches:
+            - docker
+          script:
+            - docker login --username $JFROG_USERNAME --password $JFROG_PASSWORD intechww-docker-local.jfrog.io
+            - docker build --target prod --build-arg APP_NAME=scratch -t intechww-docker-local.jfrog.io/nestjs-boilerplate:0.0.1 .
+            - docker push intechww-docker-local.jfrog.io/nestjs-boilerplate:0.0.1
+options:
+  docker: true
