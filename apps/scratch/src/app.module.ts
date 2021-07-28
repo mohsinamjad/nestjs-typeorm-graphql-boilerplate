@@ -27,7 +27,7 @@ import { typeOrmConfigAsync } from './config/ormconfig';
       /**
        * it will auto generate schema.gql from objectTypes/Entities
        */
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: join(__dirname, 'schema.gql'),
       playground: true,
       cors: {
         origin: '*',

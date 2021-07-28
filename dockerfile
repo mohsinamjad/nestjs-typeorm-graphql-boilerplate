@@ -7,8 +7,6 @@ ENV APP_NAME=${APP_NAME}
 
 COPY package*.json ./
 
-RUN npm install
-
 COPY . .
 
 
@@ -16,7 +14,7 @@ COPY . .
 
 FROM base AS dev
 
-CMD npm run start:dev ${APP_NAME}
+CMD [ -d "node_modules" ] && npm run start:dev ${APP_NAME} || npm ci && npm run start:dev ${APP_NAME} 
 
 
 
