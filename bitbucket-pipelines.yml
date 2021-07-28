@@ -17,7 +17,7 @@ pipelines:
           - docker login --username $JFROG_USERNAME --password $JFROG_PASSWORD intechww-docker-local.jfrog.io
           - docker build --target prod --build-arg APP_NAME=scratch -t intechww-docker-local.jfrog.io/nestjs-boilerplate:0.0.1 .
   branches:
-    master:
+    main:
       - step:
           name: Run the tests and build the Docker image
           deployment: test
