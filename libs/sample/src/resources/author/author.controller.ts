@@ -34,9 +34,10 @@ export class AuthorController {
   @UseInterceptors(DurationInterceptor)
   @Post('create')
   async create(
-    @Body(new ClassValidationPipe()) author: CreateAuthorInput,
+    @Body(new ClassValidationPipe())
+    author: CreateAuthorInput,
   ): Promise<Author> {
-    return this.authorService.create(author);
+    return this.authorService.saveSingle(author);
   }
 
   @UseInterceptors(DurationInterceptor)
@@ -45,7 +46,7 @@ export class AuthorController {
     @Param('id', ParseIntPipe) id: number,
     @Body() author: UpdateAuthorInput,
   ): Promise<Author> {
-    return this.authorService.update(author);
+    return this.authorService.saveSingle(author);
   }
 
   @UseInterceptors(DurationInterceptor)
