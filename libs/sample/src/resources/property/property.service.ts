@@ -1,4 +1,5 @@
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
+import { plainToClass } from 'class-transformer';
 import { Connection } from 'typeorm';
 import { CreatePropertyInput, UpdatePropertyInput } from './dto/property.dto';
 import Property from './property.entity';
@@ -19,12 +20,12 @@ export class PropertyService {
     return this.propertyRepository.findOne(options);
   }
 
-  async create({ parent, ...rest }: CreatePropertyInput): Promise<Property> {
-    const createdProperty = await this.propertyRepository.create({
-      ...rest,
-    });
-    if (parent) {
-      const parentInstance = await this.propertyRepository.findOne(parent.id);
+  async create(property: CreatePropertyInput): Promise<Property> {
+    const createdProperty = plainToClass(Property, property);
+    if (createdProperty.parent) {
+      const parentInstance = await this.propertyRepository.findOne(
+        createdProperty.parent?.id,
+      );
       if (!parentInstance)
         throw new UnprocessableEntityException('Parent not found');
       createdProperty.parent = parentInstance;
@@ -34,7 +35,17 @@ export class PropertyService {
   }
 
   async update(property: UpdatePropertyInput): Promise<Property> {
-    return await this.propertyRepository.save(property);
+    const createdProperty = plainToClass(Property, property);
+    if (createdProperty.parent) {
+      const parentInstance = await this.propertyRepository.findOne(
+        createdProperty.parent?.id,
+      );
+      if (!parentInstance)
+        throw new UnprocessableEntityException('Parent not found');
+      createdProperty.parent = parentInstance;
+    }
+    const result = await this.propertyRepository.save(createdProperty);
+    return result;
   }
 
   async delete(id: number, softDelete = false): Promise<number> {

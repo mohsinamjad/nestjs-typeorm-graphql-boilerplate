@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { Connection } from 'typeorm';
-import Author from '../author/author.entity';
+import { plainToClass } from 'class-transformer';
+import { Connection, getManager } from 'typeorm';
+import { BookCategory } from '../bookCategory/book-category-entity';
 import Book from './book.entity';
 import { CreateBookInputWithAuthor, UpdateBookInput } from './dto/book.dto';
 
@@ -16,13 +17,26 @@ export class BookService {
     return this.connection.manager.findOne(Book, options);
   }
 
-  async create(book: CreateBookInputWithAuthor): Promise<Book> {
-    const { author, ...rest } = book;
-    const createdAuthor = await this.connection.manager.save(Author, author);
-    const payload = { ...rest, author: createdAuthor };
-    const createdBook = await this.connection.manager.create(Book, payload);
-    const result = await this.connection.manager.save(Book, createdBook);
-    return result;
+  async create(bookData: CreateBookInputWithAuthor): Promise<Book> {
+    return await getManager().transaction(
+      async (transactionalEntityManager) => {
+        const transformed = plainToClass(Book, bookData);
+        const { bookCategories, ...book } = transformed;
+        const bookInstance = await transactionalEntityManager.save(Book, book);
+        if (bookCategories.length) {
+          await transactionalEntityManager.save(
+            BookCategory,
+            bookCategories.map((bookCategory) => {
+              return {
+                ...bookCategory,
+                book: bookInstance,
+              };
+            }),
+          );
+        }
+        return bookInstance;
+      },
+    );
   }
 
   async update(book: UpdateBookInput): Promise<Book> {

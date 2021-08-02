@@ -15,8 +15,8 @@ export class CreatePropertyInput implements Partial<Property> {
   @Field(() => PropertyConnectInput, { nullable: true })
   parent?: Property;
 
-  // @Field(() => Int, { nullable: true })
-  // parent?: Property;
+  @Field(() => [CreatePropertyInput], { nullable: true })
+  children?: Property[];
 }
 
 @InputType({ description: 'property connectInput' })
@@ -38,4 +38,7 @@ export class UpdatePropertyInput implements Partial<Property> {
   @IsNumber()
   @Field({ nullable: true })
   value?: number;
+
+  @Field(() => PropertyConnectInput, { nullable: true })
+  parent?: Property;
 }

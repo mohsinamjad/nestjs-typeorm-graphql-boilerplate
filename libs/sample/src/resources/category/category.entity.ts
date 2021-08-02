@@ -5,21 +5,18 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
   JoinTable,
   ManyToMany,
-  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import Author from '../author/author.entity';
+import Book from '../book/book.entity';
 import { BookCategory } from '../bookCategory/book-category-entity';
-import Category from '../category/category.entity';
 
 @ObjectType()
-@Entity({ name: 'books' })
-export default class Book extends BaseEntity {
+@Entity({ name: 'categories' })
+export default class Category extends BaseEntity {
   @Field()
   @PrimaryGeneratedColumn()
   id: number;
@@ -36,40 +33,23 @@ export default class Book extends BaseEntity {
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
 
-  @Field(() => Author)
-  @ManyToOne(() => Author, (author) => author.books, {
-    onDelete: 'CASCADE',
-  })
-  @JoinColumn({ name: 'author_id' })
-  @Type(() => Author)
-  author: Author;
-
-  /**
-   * used for fetching relational entities such as
-   *  const { categories } = await this.bookService.findOne({
-      relations: ['categories'],
-      where: {
-        id: root.id,
-      },
-    });
-   * */
-  @Type(() => Category)
-  @ManyToMany(() => Category, {})
+  @Type(() => Book)
+  @ManyToMany(() => Book)
   @JoinTable({
     name: 'book_categories',
     joinColumn: {
-      name: 'bookId',
-      referencedColumnName: 'id',
-    },
-    inverseJoinColumn: {
       name: 'categoryId',
       referencedColumnName: 'id',
     },
+    inverseJoinColumn: {
+      name: 'bookId',
+      referencedColumnName: 'id',
+    },
   })
-  categories: Category[];
+  books: Book[];
 
   @Type(() => BookCategory)
   @Field(() => [BookCategory])
-  @OneToMany(() => BookCategory, (bookCategory) => bookCategory.bookId)
+  @OneToMany(() => BookCategory, (bookCategory) => bookCategory.categoryId)
   bookCategories: BookCategory[];
 }

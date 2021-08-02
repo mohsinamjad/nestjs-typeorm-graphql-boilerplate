@@ -19,6 +19,13 @@ export class CreateAuthorInput implements Partial<Author> {
   books?: Book[];
 }
 
+@InputType({ description: 'author connect' })
+export class AuthorConnectInput implements Partial<Author> {
+  @IsInt()
+  @Field({ nullable: false })
+  id: number;
+}
+
 @InputType({ description: 'update author data' })
 export class UpdateAuthorInput implements Partial<Author> {
   @IsInt()

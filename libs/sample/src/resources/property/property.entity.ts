@@ -1,4 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
+import { Type } from 'class-transformer';
 import {
   Column,
   CreateDateColumn,
@@ -36,10 +37,12 @@ export default class Property {
 
   // Associations
   @Field(() => [Property])
-  @TreeChildren()
+  @Type(() => Property)
+  @TreeChildren({ cascade: true })
   children?: Property[];
 
   @Field(() => Property, { nullable: true })
   @TreeParent()
+  @Type(() => Property)
   parent?: Property;
 }

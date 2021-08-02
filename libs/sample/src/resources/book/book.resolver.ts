@@ -1,4 +1,13 @@
-import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  Int,
+  Mutation,
+  Query,
+  ResolveField,
+  Resolver,
+  Root,
+} from '@nestjs/graphql';
+import Category from '../category/category.entity';
 import Book from './book.entity';
 import { BookService } from './book.service';
 import { CreateBookInputWithAuthor, UpdateBookInput } from './dto/book.dto';
@@ -27,5 +36,16 @@ export class BookResolver {
   @Mutation(() => Int)
   async deleteBook(@Args('id') id: number): Promise<number> {
     return this.bookService.delete(id);
+  }
+
+  @ResolveField(() => [Category])
+  async categories(@Root() root: Book): Promise<Category[]> {
+    const { categories } = await this.bookService.findOne({
+      relations: ['categories'],
+      where: {
+        id: root.id,
+      },
+    });
+    return categories;
   }
 }
