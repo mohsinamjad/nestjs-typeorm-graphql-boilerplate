@@ -1,6 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql';
 import { IsInt } from 'class-validator';
-import { BookCategory } from '../../bookCategory/book-category-entity';
+import { BookCategory } from '../../bookCategory/book-category.entity';
 import { CreateBookCategoryInput } from '../../bookCategory/dto/book-category.dto';
 import Category from '../category.entity';
 

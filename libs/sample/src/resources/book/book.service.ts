@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
 import { Connection, getManager } from 'typeorm';
-import { BookCategory } from '../bookCategory/book-category-entity';
+import { BookCategory } from '../bookCategory/book-category.entity';
 import Book from './book.entity';
 import { CreateBookInputWithAuthor, UpdateBookInput } from './dto/book.dto';
 

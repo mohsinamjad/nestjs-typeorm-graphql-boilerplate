@@ -2,27 +2,33 @@ import { AuthModule } from '@libs/auth';
 import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
 import { SeedModule } from '@libs/auth/seed/seed.module';
 import { LoggerMiddleware } from '@libs/common';
+import { SampleModule } from '@libs/sample';
 import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SampleModule } from '@libs/sample';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppResolver } from './app.resolver';
 import { AppService } from './app.service';
-import { typeOrmConfigAsync } from './config/ormconfig';
+import dbConfiguration from './config/db.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       ignoreEnvFile: false,
+      load: [dbConfiguration],
       envFilePath: `apps/scratch/env/.env.${process.env.NODE_ENV || 'dev'}`,
     }),
-    TypeOrmModule.forRootAsync(typeOrmConfigAsync),
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => {
+        return configService.get('databaseConfig');
+      },
+    }),
     GraphQLModule.forRoot({
       /**
        * it will auto generate schema.gql from objectTypes/Entities

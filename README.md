@@ -42,6 +42,25 @@ $ APP_NAME=$appName docker-compose -f docker-compose.prod.yml up
 ## Test
 
 ```bash
+
+# generate new with autodiff
+$ npm run typeorm:migrate:generate -- -n pre-auth -f ./apps/$APP_NAME/src/config/ormconfig.ts
+
+# create new
+$ npm run typeorm -- migration:create -n pre-auth -f ./apps/$APP_NAME/src/config/ormconfig.ts
+
+
+# migrate up
+$ npm run typeorm:migrate:up -- --config ./apps/scratch/src/config/ormconfig.ts
+
+# migrate down
+$ npm run typeorm:migrate:up -- --config ./apps/scratch/src/config/ormconfig.ts
+
+```
+
+## Test
+
+```bash
 # unit tests
 $ npm run test
 

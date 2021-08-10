@@ -1,7 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql';
 import Author from '../../author/author.entity';
 import { AuthorConnectInput } from '../../author/dto/author.dto';
-import { BookCategory } from '../../bookCategory/book-category-entity';
+import { BookCategory } from '../../bookCategory/book-category.entity';
 import { CreateThroughBookInput } from '../../bookCategory/dto/book-category.dto';
 import Category from '../../category/category.entity';
 import { CreateCategoryInput } from '../../category/dto/category.dto';

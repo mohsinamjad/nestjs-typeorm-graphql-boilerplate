@@ -14,7 +14,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import Author from '../author/author.entity';
-import { BookCategory } from '../bookCategory/book-category-entity';
+import { BookCategory } from '../bookCategory/book-category.entity';
 import Category from '../category/category.entity';
 
 @ObjectType()
@@ -55,17 +55,6 @@ export default class Book extends BaseEntity {
    * */
   @Type(() => Category)
   @ManyToMany(() => Category, {})
-  @JoinTable({
-    name: 'book_categories',
-    joinColumn: {
-      name: 'bookId',
-      referencedColumnName: 'id',
-    },
-    inverseJoinColumn: {
-      name: 'categoryId',
-      referencedColumnName: 'id',
-    },
-  })
   categories: Category[];
 
   @Type(() => BookCategory)
