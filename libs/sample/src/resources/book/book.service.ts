@@ -1,13 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { TENANT_CONNECTION } from '@libs/common/resources/tenant/tenant.module';
+import { Inject, Injectable } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
-import { Connection, getManager } from 'typeorm';
+import { getManager } from 'typeorm';
 import { BookCategory } from '../bookCategory/book-category.entity';
 import Book from './book.entity';
 import { CreateBookInputWithAuthor, UpdateBookInput } from './dto/book.dto';
 
 @Injectable()
 export class BookService {
-  constructor(private connection: Connection) {}
+  constructor(@Inject(TENANT_CONNECTION) private connection) {}
 
   async findAll(): Promise<Book[]> {
     return this.connection.manager.find(Book);

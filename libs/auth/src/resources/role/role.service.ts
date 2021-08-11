@@ -1,11 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { TENANT_CONNECTION } from '@libs/common/resources/tenant/tenant.module';
+import { Inject, Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
 import { CreateRoleInput, UpdateRoleInput } from './dto/role.dto';
 import Role from './role.entity';
-import { RoleRepository } from './role.repository';
 
 @Injectable()
 export class RoleService {
-  constructor(private roleRepository: RoleRepository) {}
+  private roleRepository: Repository<Role>;
+  constructor(@Inject(TENANT_CONNECTION) private connection) {
+    this.roleRepository = connection.getRepository(Role);
+  }
 
   async findAll(options = {}): Promise<Role[]> {
     return this.roleRepository.find(options);

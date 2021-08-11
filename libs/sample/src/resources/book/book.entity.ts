@@ -55,6 +55,17 @@ export default class Book extends BaseEntity {
    * */
   @Type(() => Category)
   @ManyToMany(() => Category, {})
+  @JoinTable({
+    name: 'book_categories',
+    joinColumn: {
+      name: 'bookId',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'categoryId',
+      referencedColumnName: 'id',
+    },
+  })
   categories: Category[];
 
   @Type(() => BookCategory)

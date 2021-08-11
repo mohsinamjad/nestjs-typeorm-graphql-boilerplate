@@ -47,6 +47,7 @@
     "dataloader": "2.0.0",
     "graphql": "15.5.1",
     "graphql-tools": "7.0.5",
+    "graphql-type-json": "^0.3.2",
     "helmet": "4.6.0",
     "lodash": "4.17.21",
     "nestjs-command": "2.0.0",

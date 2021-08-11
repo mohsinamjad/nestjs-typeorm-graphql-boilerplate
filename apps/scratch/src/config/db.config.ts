@@ -5,8 +5,8 @@ import { join } from 'path';
 function getMigrationDirectory() {
   const path =
     process.env.NODE_MODE === 'cli'
-      ? join(process.cwd(), '/apps/scratch/src', '/migrations/*{.ts,.js}')
-      : join(process.cwd(), '/dist/apps/scratch/main.js');
+      ? join('/apps/scratch/src', '/migrations/root/*{.ts,.js}')
+      : join('/dist/apps/scratch/main.js');
   return `${path}`;
 }
 
@@ -26,11 +26,13 @@ export default registerAs(
       migrationsRun: process.env.TYPEORM_MIGRATIONS_RUN === 'true',
       synchronize: process.env.TYPEORM_SYNCHRONIZE === 'true',
       autoLoadEntities: true,
-      ...(process.env.NODE_MODE === 'cli' ? { entities: [] } : {}), // GLOB pattern doesnt work in app mode but works only in CLI mode
+      ...(process.env.NODE_MODE === 'cli'
+        ? { entities: ['**/**/*.entity.ts'] }
+        : {}), // GLOB pattern doesnt work in app mode but works only in CLI mode
       migrationsTableName: process.env.TYPEORM_MIGRATIONS_TABLE,
       migrations: [getMigrationDirectory()], // workis only in cli mode // indicates that typeorm must load migrations from the given "migration" directory.
       cli: {
-        migrationsDir: 'apps/scratch/src/migrations', //  indicates that the CLI must create new migrations in the "migration" directory.
+        migrationsDir: 'apps/scratch/src/migrations/root', //  indicates that the CLI must create new migrations in the "migration" directory.
       },
     };
   },

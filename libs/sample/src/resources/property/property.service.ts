@@ -1,16 +1,19 @@
-import { Injectable, UnprocessableEntityException } from '@nestjs/common';
+import { TENANT_CONNECTION } from '@libs/common/resources/tenant/tenant.module';
+import {
+  Inject,
+  Injectable,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
-import { Connection } from 'typeorm';
 import { CreatePropertyInput, UpdatePropertyInput } from './dto/property.dto';
 import Property from './property.entity';
-import { PropertyRepository } from './property.repository';
 
 @Injectable()
 export class PropertyService {
-  constructor(
-    private propertyRepository: PropertyRepository,
-    private readonly connection: Connection,
-  ) {}
+  private propertyRepository;
+  constructor(@Inject(TENANT_CONNECTION) private connection) {
+    this.propertyRepository = connection.getRepository(Property);
+  }
 
   async findAll(options = {}): Promise<Property[]> {
     return this.propertyRepository.find(options);

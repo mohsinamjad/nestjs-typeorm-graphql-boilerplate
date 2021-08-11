@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { Connection } from 'typeorm';
+import { TENANT_CONNECTION } from '@libs/common/resources/tenant/tenant.module';
+import { Inject, Injectable } from '@nestjs/common';
 import Category from './category.entity';
 import { CreateCategoryInput, UpdateCategoryInput } from './dto/category.dto';
 
 @Injectable()
 export class CategoryService {
-  constructor(private connection: Connection) {}
+  constructor(@Inject(TENANT_CONNECTION) private connection) {}
 
   async findAll(): Promise<Category[]> {
     return this.connection.manager.find(Category);

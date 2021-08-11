@@ -10,20 +10,22 @@ import { UserModule } from './resources/user/user.module';
 import { JwtStrategy } from './passport-strategies/jwt.strategy';
 import { LocalStrategy } from './passport-strategies/local.strategy';
 import { AuthResolver } from './auth.resolver';
+import { TenantModule } from '@libs/common/resources/tenant/tenant.module';
 
 @Module({
   imports: [
-    UserModule,
-    RoleModule,
+    TenantModule,
     PassportModule,
-    CaslModule,
     JwtModule.register({
       secret: JWT_SECRET,
       signOptions: { expiresIn: '10h' },
     }),
+    CaslModule,
+    UserModule,
+    RoleModule,
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy, AuthResolver],
-  exports: [AuthService],
+  exports: [AuthService, LocalStrategy, JwtStrategy, PassportModule, JwtModule],
   controllers: [AuthController],
 })
 export class AuthModule {}

@@ -1,16 +1,19 @@
-import { ExtractJwt, Strategy } from 'passport-jwt';
+import { Injectable } from '@nestjs/common';
+import { ContextIdFactory, ModuleRef } from '@nestjs/core';
 import { PassportStrategy } from '@nestjs/passport';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { ExtractJwt, Strategy } from 'passport-jwt';
+import { AuthService } from '..';
 import { JWT_SECRET } from '../constants';
-import { UserService } from '../resources/user/user.service';
 
+// NOTE: only use auth service in strategies
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
-  constructor(private userService: UserService) {
+  constructor(private moduleRef: ModuleRef) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
       secretOrKey: JWT_SECRET,
+      passReqToCallback: true,
     });
   }
 
@@ -19,15 +22,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
    * @param payload : parsed access_token
    * @returns boolean
    */
-  async validate(payload: any) {
-    //   can be optional for stateless JWT check
-    const user = await this.userService.findOne({
-      relations: ['roles'],
-      where: { email: payload.email, id: payload.sub },
-    });
-    if (!user) throw new UnauthorizedException();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...rest } = user;
-    return rest;
+  async validate(request: Request, payload: any) {
+    // get unique contextId for request
+    const contextId = ContextIdFactory.getByRequest(request);
+    /* register request for further inject:[REQUEST] usage through out the scoped lifecycle
+     * https://github.com/nestjs/nest/issues/4967
+     */
+    this.moduleRef.registerRequestByContextId(request, contextId);
+    // getting request scoped service
+    const authService = await this.moduleRef.resolve(AuthService, contextId);
+    return authService.getByToken(payload);
   }
 }

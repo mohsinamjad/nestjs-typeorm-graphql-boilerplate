@@ -1,17 +1,21 @@
-import { Injectable } from '@nestjs/common';
-import User from './user.entity';
-import { UserRepository } from './user.repository';
-import { CreateUserInput, UpdateUserInput } from './dto/user.dto';
+import { TENANT_CONNECTION } from '@libs/common/resources/tenant/tenant.module';
+import { Inject, Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcryptjs';
-import { RoleRepository } from '../role/role.repository';
 import { keyBy } from 'lodash';
+import { Repository } from 'typeorm';
+import Role from '../role/role.entity';
+import { CreateUserInput, UpdateUserInput } from './dto/user.dto';
+import User from './user.entity';
 
 @Injectable()
 export class UserService {
-  constructor(
-    private userRepository: UserRepository,
-    private roleRepository: RoleRepository,
-  ) {}
+  private roleRepository: Repository<Role>;
+  private userRepository: Repository<User>;
+
+  constructor(@Inject(TENANT_CONNECTION) private connection) {
+    this.roleRepository = connection.getRepository(Role);
+    this.userRepository = connection.getRepository(User);
+  }
 
   async findAll(options = {}): Promise<User[]> {
     return this.userRepository.find(options);
