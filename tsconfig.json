@@ -29,6 +29,12 @@
       ],
       "@libs/sample/*": [
         "libs/sample/src/*"
+      ],
+      "@lib/nft": [
+        "libs/nft/src"
+      ],
+      "@lib/nft/*": [
+        "libs/nft/src/*"
       ]
     }
   }

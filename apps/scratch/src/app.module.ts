@@ -1,38 +1,57 @@
-import { AuthModule } from '@libs/auth';
 import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
 import { SeedModule } from '@libs/auth/seed/seed.module';
 import { LoggerMiddleware } from '@libs/common';
+import { dbConfiguration } from '@libs/common/config/db-config';
+import { redisConfiguration } from '@libs/common/config/redis-config';
 import { MiddlewareConsumer, Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { SampleModule } from '@libs/sample';
+import { NftModule } from 'libs/nft/src';
+import { RedisModule } from 'nestjs-redis';
 import { join } from 'path';
-import { AppController } from './app.controller';
-import { AppResolver } from './app.resolver';
-import { AppService } from './app.service';
-import { typeOrmConfigAsync } from './config/ormconfig';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       ignoreEnvFile: false,
-      envFilePath: `apps/scratch/env/.env.${process.env.NODE_ENV || 'dev'}`,
+      load: [dbConfiguration, redisConfiguration],
+      envFilePath: `apps/scratch/env/.env`,
     }),
-    TypeOrmModule.forRootAsync(typeOrmConfigAsync),
-    GraphQLModule.forRoot({
-      /**
-       * it will auto generate schema.gql from objectTypes/Entities
-       */
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      playground: true,
-      cors: {
-        origin: '*',
-        credentials: true,
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => {
+        return { ...configService.get('databaseConfig'), schema: 'public' };
       },
+    }),
+    GraphQLModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        /**
+         * it will auto generate schema.gql from objectTypes/Entities
+         */
+        autoSchemaFile: join(__dirname, 'schema.gql'),
+        playground: true,
+        uploads: false,
+        cors: {
+          origin: '*',
+          credentials: true,
+        },
+        introspection: [true, 'true'].includes(
+          configService.get('ENABLE_INTROSPECTION'),
+        ),
+      }),
+    }),
+    RedisModule.forRootAsync({
+      useFactory: async (configService: ConfigService) => {
+        return {
+          ...(configService.get('redisConfig') as ConfigService),
+        };
+      },
+      inject: [ConfigService],
     }),
     /**
      * Once this is done, the TypeORM Connection and EntityManager objects will be available to inject
@@ -42,14 +61,10 @@ import { typeOrmConfigAsync } from './config/ormconfig';
       ttl: 10,
       limit: 5,
     }),
-    SampleModule,
     SeedModule,
-    AuthModule,
+    NftModule,
   ],
-  controllers: [AppController],
   providers: [
-    AppService,
-    AppResolver,
     {
       provide: APP_GUARD,
       useClass: CustomThrottlerGuard,
