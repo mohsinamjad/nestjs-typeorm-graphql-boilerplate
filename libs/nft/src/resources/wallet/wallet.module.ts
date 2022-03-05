@@ -16,5 +16,6 @@ import { WalletService } from './wallet.service';
     ]),
   ],
   providers: [WalletResolver, WalletService],
+  exports: [WalletResolver, WalletService],
 })
 export class WalletModule {}

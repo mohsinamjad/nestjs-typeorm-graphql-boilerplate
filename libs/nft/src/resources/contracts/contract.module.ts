@@ -16,5 +16,6 @@ import { ContractService } from './contract.service';
     ]),
   ],
   providers: [ContractResolver, ContractService],
+  exports: [ContractResolver, ContractService],
 })
 export class ContractModule {}

@@ -16,5 +16,6 @@ import { HolderService } from './holder.service';
     ]),
   ],
   providers: [HolderResolver, HolderService],
+  exports: [HolderResolver, HolderService],
 })
 export class HolderModule {}

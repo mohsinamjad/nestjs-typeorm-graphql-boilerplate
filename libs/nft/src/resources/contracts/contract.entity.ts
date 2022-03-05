@@ -57,8 +57,4 @@ export default class Contract {
   @Field()
   @UpdateDateColumn({ type: 'timestamptz', name: 'updated_at' })
   updatedAt: Date;
-
-  @Field()
-  @UpdateDateColumn({ type: 'timestamptz', name: 'updated_at' })
-  deletedAt: Date;
 }
