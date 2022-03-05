@@ -1,5 +1,5 @@
+import { NFTSeedModule } from '@lib/nft/seed/seed.module';
 import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
-import { SeedModule } from '@libs/auth/seed/seed.module';
 import { LoggerMiddleware } from '@libs/common';
 import { dbConfiguration } from '@libs/common/config/db-config';
 import { redisConfiguration } from '@libs/common/config/redis-config';
@@ -61,8 +61,8 @@ import { join } from 'path';
       ttl: 10,
       limit: 5,
     }),
-    SeedModule,
     NftModule,
+    NFTSeedModule,
   ],
   providers: [
     {
