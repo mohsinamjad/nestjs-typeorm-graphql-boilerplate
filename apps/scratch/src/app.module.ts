@@ -1,15 +1,14 @@
-import { NFTSeedModule } from '@lib/nft/seed/seed.module';
 import { CustomThrottlerGuard } from '@libs/auth/guards/throttler-guard';
 import { LoggerMiddleware } from '@libs/common';
 import { dbConfiguration } from '@libs/common/config/db-config';
 import { redisConfiguration } from '@libs/common/config/redis-config';
+import { SampleModule } from '@libs/sample';
 import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { APP_GUARD } from '@nestjs/core';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { NftModule } from 'libs/nft/src';
 import { RedisModule } from 'nestjs-redis';
 import { join } from 'path';
 
@@ -61,8 +60,7 @@ import { join } from 'path';
       ttl: 10,
       limit: 5,
     }),
-    NftModule,
-    NFTSeedModule,
+    SampleModule,
   ],
   providers: [
     {

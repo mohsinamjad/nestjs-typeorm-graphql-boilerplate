@@ -23,7 +23,7 @@ export default class TypeOrmConfig {
       port: parseInt(configService.get('TYPEORM_PORT')),
       logging: configService.get('TYPEORM_LOGGING') === 'true',
       migrationsRun: configService.get('TYPEORM_MIGRATIONS_RUN') === 'true',
-      synchronize: configService.get('TYPEORM_SYNCHRONIZE') === 'true',
+      synchronize: true, //configService.get('TYPEORM_SYNCHRONIZE') === 'true',
       autoLoadEntities: true,
       migrationsTableName: configService.get('TYPEORM_MIGRATIONS_TABLE'),
       migrations: [getMigrationDirectory(configService)],

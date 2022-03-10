@@ -1,5 +1,3 @@
-import { NftModule } from '@lib/nft';
-import { NFTSeedModule } from '@lib/nft/seed/seed.module';
 import { dbConfiguration } from '@libs/common/config/db-config';
 import { redisConfiguration } from '@libs/common/config/redis-config';
 import { logger } from '@libs/common/logger';
@@ -22,9 +20,6 @@ import { BootstrapConsole } from 'nestjs-console';
         return { ...configService.get('databaseConfig'), schema: 'public' };
       },
     }),
-
-    NftModule,
-    NFTSeedModule,
   ],
 })
 export class AppModule {}
