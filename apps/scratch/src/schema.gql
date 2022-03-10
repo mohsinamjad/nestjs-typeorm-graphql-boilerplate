@@ -25,75 +25,38 @@ type Author {
   virtualField: Int!
 }
 
-type Role {
+type Property {
   id: Float!
   name: String!
+  value: Float!
   createdAt: DateTime!
   updatedAt: DateTime!
-  users: [User!]
-}
-
-type User {
-  id: Float!
-  name: String!
-  email: String!
-  phone: String
-  createdAt: DateTime!
-  updatedAt: DateTime!
-  roles: [Role!]
+  children: [Property!]!
+  parent: Property
 }
 
 type Query {
-  sayHello: String!
-  whoAmI: User!
-  users: [User!]!
-  roles: [Role!]!
-  authors: [Author!]!
   books: [Book!]!
+  authors: [Author!]!
+  properties: [Property!]!
 }
 
 type Mutation {
-  createUser(data: CreateUserInput!): User!
-  updateUser(data: UpdateUserInput!): User!
-  deleteUser(id: Float!): Int!
-  createRole(data: CreateRoleInput!): Role!
-  updateRole(data: UpdateRoleInput!): Role!
-  deleteRole(id: Float!): Int!
-  createAuthor(data: CreateAuthorInput!): Author!
-  updateAuthor(data: UpdateAuthorInput!): Author!
-  deleteAuthor(id: Float!): Int!
   createBook(data: CreateBookInputWithAuthor!): Book!
   updateBook(data: UpdateBookInput!): Book!
   deleteBook(id: Float!): Int!
-  login(data: loginInput!): String!
+  createAuthor(data: CreateAuthorInput!): Author!
+  updateAuthor(data: UpdateAuthorInput!): Author!
+  deleteAuthor(id: Float!): Int!
+  createProperty(data: CreatePropertyInput!): Property!
+  updateProperty(data: UpdatePropertyInput!): Property!
+  deleteProperty(id: Float!): Int!
 }
 
-"""new user data"""
-input CreateUserInput {
-  name: String!
-  email: String!
-  password: String!
-  phone: String
-  roles: [CreateRoleInput!]
-}
-
-"""new role data"""
-input CreateRoleInput {
-  name: String!
-}
-
-"""update user data"""
-input UpdateUserInput {
-  id: Float!
-  name: String
-  email: String
-  phone: String
-}
-
-"""update role data"""
-input UpdateRoleInput {
-  id: Float!
-  name: String!
+"""new book data"""
+input CreateBookInputWithAuthor {
+  title: String!
+  author: CreateAuthorInput!
 }
 
 """new author data"""
@@ -108,6 +71,11 @@ input CreateBookInputWithoutAuthor {
   title: String!
 }
 
+"""update book data"""
+input UpdateBookInput {
+  title: String!
+}
+
 """update author data"""
 input UpdateAuthorInput {
   id: Float!
@@ -115,19 +83,21 @@ input UpdateAuthorInput {
   phone: String
 }
 
-"""new book data"""
-input CreateBookInputWithAuthor {
-  title: String!
-  author: CreateAuthorInput!
+"""new property data"""
+input CreatePropertyInput {
+  name: String!
+  value: Float!
+  parent: PropertyConnectInput
 }
 
-"""update book data"""
-input UpdateBookInput {
-  title: String!
+"""property connectInput"""
+input PropertyConnectInput {
+  id: Float!
 }
 
-"""new user data"""
-input loginInput {
-  email: String!
-  password: String!
+"""update property data"""
+input UpdatePropertyInput {
+  id: Float!
+  name: String
+  value: Float
 }

@@ -18,5 +18,6 @@ import { AuthorService } from './author.service';
   ],
   providers: [AuthorResolver, AuthorService],
   controllers: [AuthorController],
+  exports: [AuthorResolver, AuthorService],
 })
 export class AuthorModule {}
